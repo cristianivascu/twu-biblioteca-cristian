@@ -5,7 +5,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -16,13 +18,13 @@ public class CustomerTest {
     private Library bangaloreLibrary;
     private Book harryPotter1;
     private Book harryPotter2;
-    private List<Book> inventory = new ArrayList<Book>();
+    private Map<Book, Integer> inventory = new HashMap<Book, Integer>();
 
     @Before
     public void setUp() throws Exception{
         harryPotter1 = new Book("Harry Potter and the Philosopher's Stone","J. K. Rowling", 1997);
         harryPotter2 = new Book("Harry Potter and the Chamber of Secrets","J. K. Rowling", 1998);
-        inventory.add(harryPotter1);
+        inventory.put(harryPotter1,1);
         bangaloreLibrary = new Library(inventory);
         alice = new Customer(bangaloreLibrary);
     }
