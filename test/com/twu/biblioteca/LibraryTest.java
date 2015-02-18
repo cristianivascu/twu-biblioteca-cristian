@@ -20,21 +20,22 @@ public class LibraryTest {
     public void setUp() throws Exception{
         harryPotter1 = new Book("Harry Potter and the Philosopher's Stone","J. K. Rowling", 1997);
         harryPotter2 = new Book("Harry Potter and the Chamber of Secrets","J. K. Rowling", 1998);
-        inventory.put(harryPotter1,1);
+        inventory.put(harryPotter1, 1);
         bangaloreLibrary = new Library(inventory);
     }
 
     @Test
-    public void testAddBookToInventory() {
-        bangaloreLibrary.addBook(harryPotter2);
-        assertTrue(bangaloreLibrary.getInventory().containsKey(harryPotter2));
-        assertEquals(1, (int) bangaloreLibrary.getInventory().get(harryPotter2));
+    public void testAddExistentBookToInventory() {
+        assertTrue(bangaloreLibrary.addBook(harryPotter1));
+        assertEquals(2, (int) bangaloreLibrary.getInventory().get(harryPotter1));
+        assertFalse(bangaloreLibrary.addBook(harryPotter2));
     }
 
     @Test
     public void testRemoveAvailableBookFromInventory() {
         assertTrue(bangaloreLibrary.removeBook(harryPotter1));
         assertEquals(0, (int) bangaloreLibrary.getInventory().get(harryPotter1));
+        assertFalse(bangaloreLibrary.removeBook(harryPotter1));
         assertFalse(bangaloreLibrary.removeBook(harryPotter2));
     }
 }

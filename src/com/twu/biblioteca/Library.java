@@ -16,9 +16,11 @@ public class Library {
         return inventory;
     }
 
-    public void addBook(Book book) {
-        int currentNumberOfCopies = inventory.containsKey(book) ? inventory.get(book) : 0;
-        inventory.put(book,currentNumberOfCopies+1);
+    public boolean addBook(Book book) {
+        if(!inventory.containsKey(book))
+            return false;
+        inventory.put(book,inventory.get(book)+1);
+        return true;
     }
 
     public boolean removeBook(Book book) {
