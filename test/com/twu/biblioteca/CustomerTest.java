@@ -35,7 +35,12 @@ public class CustomerTest {
     @Test
     public void testUnsuccessfulCheckout(){
         assertFalse(alice.checkout(harryPotter2));
-        assertFalse(alice.getCheckedOutBooks().contains(harryPotter2));
+    }
+
+    @Test
+    public void testSuccessfulReturn(){
+        assertTrue(alice.returnBook(harryPotter1));
+        assertFalse(alice.getCheckedOutBooks().contains(harryPotter1));
     }
 
 }

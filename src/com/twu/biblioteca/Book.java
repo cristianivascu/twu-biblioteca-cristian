@@ -11,4 +11,26 @@ public class Book {
         this.author = author;
         this.year = year;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Book book = (Book) o;
+
+        if (year != book.year) return false;
+        if (!author.equals(book.author)) return false;
+        if (!title.equals(book.title)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = author.hashCode();
+        result = 31 * result + title.hashCode();
+        result = 31 * result + year;
+        return result;
+    }
 }

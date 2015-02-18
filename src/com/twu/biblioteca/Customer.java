@@ -23,4 +23,12 @@ public class Customer {
     public List<Book> getCheckedOutBooks() {
         return checkedOutBooks;
     }
+
+    public boolean returnBook(Book book) {
+        if(library.addBook(book)){
+            checkedOutBooks.remove(book);
+            return true;
+        }
+        return false;
+    }
 }
