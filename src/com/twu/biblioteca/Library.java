@@ -13,11 +13,13 @@ public class Library {
     }
 
     public Map<Book, Integer> getInventory() {
-        return inventory;
+
+        return new HashMap<Book, Integer>(inventory);
     }
 
     public void addBook(Book book) {
-        inventory.put(book,inventory.get(book)+1);
+        int quantity = inventory.containsKey(book) ? inventory.get(book) : 0;
+        inventory.put(book,quantity+1);
     }
 
     public boolean removeBook(Book book) {
