@@ -25,7 +25,7 @@ public class Customer {
     }
 
     public boolean returnBook(Book book) {
-        if(library.addBook(book)){
+        if(checkedOutBooks.contains(book)){
             checkedOutBooks.remove(book);
             return true;
         }

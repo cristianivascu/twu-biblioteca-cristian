@@ -16,11 +16,8 @@ public class Library {
         return inventory;
     }
 
-    public boolean addBook(Book book) {
-        if(!inventory.containsKey(book))
-            return false;
+    public void addBook(Book book) {
         inventory.put(book,inventory.get(book)+1);
-        return true;
     }
 
     public boolean removeBook(Book book) {

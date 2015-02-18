@@ -25,10 +25,9 @@ public class LibraryTest {
     }
 
     @Test
-    public void testAddExistentBookToInventory() {
-        assertTrue(bangaloreLibrary.addBook(harryPotter1));
-        assertEquals(2, (int) bangaloreLibrary.getInventory().get(harryPotter1));
-        assertFalse(bangaloreLibrary.addBook(harryPotter2));
+    public void testAddBookToInventory() {
+        bangaloreLibrary.addBook(harryPotter2);
+        assertEquals(1, (int) bangaloreLibrary.getInventory().get(harryPotter2));
     }
 
     @Test

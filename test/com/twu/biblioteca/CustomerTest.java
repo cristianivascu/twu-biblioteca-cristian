@@ -39,6 +39,7 @@ public class CustomerTest {
 
     @Test
     public void testSuccessfulReturn(){
+        alice.checkout(harryPotter1);
         assertTrue(alice.returnBook(harryPotter1));
         assertFalse(alice.getCheckedOutBooks().contains(harryPotter1));
     }
