@@ -4,9 +4,6 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by cristianivascu on 17/02/2015.
- */
 public class Customer {
     private List<Book> checkedOutBooks = new ArrayList<Book>();
     private Library library;
