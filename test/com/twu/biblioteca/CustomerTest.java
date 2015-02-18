@@ -44,4 +44,9 @@ public class CustomerTest {
         assertFalse(alice.getCheckedOutBooks().contains(harryPotter1));
     }
 
+    @Test
+    public void testUnsuccessfulReturn(){
+        assertFalse(alice.returnBook(harryPotter2));
+    }
+
 }
