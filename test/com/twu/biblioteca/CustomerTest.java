@@ -27,25 +27,17 @@ public class CustomerTest {
     }
 
     @Test
-    public void testSuccessfulCheckout(){
+    public void shouldCheckoutAvailableBook(){
         assertTrue(alice.checkout(harryPotter1));
         assertTrue(alice.getCheckedOutBooks().contains(harryPotter1));
-    }
-
-    @Test
-    public void testUnsuccessfulCheckout(){
         assertFalse(alice.checkout(harryPotter2));
     }
 
     @Test
-    public void testSuccessfulReturn(){
+    public void shouldReturnCheckedOutBook(){
         alice.checkout(harryPotter1);
         assertTrue(alice.returnBook(harryPotter1));
         assertFalse(alice.getCheckedOutBooks().contains(harryPotter1));
-    }
-
-    @Test
-    public void testUnsuccessfulReturn(){
         assertFalse(alice.returnBook(harryPotter2));
     }
 

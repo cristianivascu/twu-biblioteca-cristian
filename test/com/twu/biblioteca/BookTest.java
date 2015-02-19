@@ -27,12 +27,12 @@ public class BookTest {
     }
 
     @Test
-    public void testEquality(){
+    public void shouldConsiderEqualBooksWithSameFields(){
         assertEquals(harryPotter1, harryPotter1Copy);
     }
 
     @Test
-    public void testEqualityWithinStandardMap(){
+    public void ensureCorrectBehaviourInStandardMap(){
         HashMap<Book, Integer> testMap = new HashMap<Book, Integer>();
         testMap.put(harryPotter1,1);
         testMap.put(harryPotter1Copy,1);
@@ -40,7 +40,7 @@ public class BookTest {
     }
 
     @Test
-    public void testEqualityWithinLibrary(){
+    public void ensureCorrectBehaviourInLibrary(){
         assertEquals(1, (int) bangaloreLibrary.getInventory().get(harryPotter1));
         bangaloreLibrary.addBook(harryPotter1);
         bangaloreLibrary.addBook(harryPotter1Copy);

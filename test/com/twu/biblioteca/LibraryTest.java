@@ -25,13 +25,13 @@ public class LibraryTest {
     }
 
     @Test
-    public void testAddBookToInventory() {
+    public void shouldAddBookToInventory() {
         bangaloreLibrary.addBook(harryPotter2);
         assertEquals(1, (int) bangaloreLibrary.getInventory().get(harryPotter2));
     }
 
     @Test
-    public void testRemoveAvailableBookFromInventory() {
+    public void shouldRemoveAvailableBookFromInventory() {
         assertTrue(bangaloreLibrary.removeBook(harryPotter1));
         assertEquals(0, (int) bangaloreLibrary.getInventory().get(harryPotter1));
         assertFalse(bangaloreLibrary.removeBook(harryPotter1));
