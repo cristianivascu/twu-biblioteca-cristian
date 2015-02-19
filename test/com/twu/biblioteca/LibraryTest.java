@@ -37,4 +37,16 @@ public class LibraryTest {
         assertFalse(bangaloreLibrary.removeBook(harryPotter1));
         assertFalse(bangaloreLibrary.removeBook(harryPotter2));
     }
+
+    @Test
+    public void shouldListAvailableBooks(){
+        bangaloreLibrary.addBook(harryPotter2);
+        assertEquals(2, bangaloreLibrary.listAvailableBooks().size());
+        assertTrue(bangaloreLibrary.listAvailableBooks().contains(harryPotter1));
+        assertTrue(bangaloreLibrary.listAvailableBooks().contains(harryPotter2));
+        bangaloreLibrary.removeBook(harryPotter1);
+        assertEquals(1, bangaloreLibrary.listAvailableBooks().size());
+        assertTrue(bangaloreLibrary.listAvailableBooks().contains(harryPotter2));
+        assertEquals(2, bangaloreLibrary.getInventory().size());
+    }
 }

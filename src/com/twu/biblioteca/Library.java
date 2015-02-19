@@ -1,6 +1,8 @@
 package com.twu.biblioteca;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Library {
@@ -27,5 +29,14 @@ public class Library {
             return false;
         inventory.put(book, inventory.get(book)-1);
         return true;
+    }
+
+    public List<Book> listAvailableBooks() {
+        List<Book> availableBooks = new ArrayList<Book>();
+        for(Book book:inventory.keySet()){
+            if(inventory.get(book)>0)
+               availableBooks.add(book);
+        }
+        return availableBooks;
     }
 }
