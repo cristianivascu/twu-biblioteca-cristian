@@ -27,7 +27,7 @@ public class Customer {
     }
 
     public boolean returnBook(Book book) {
-        if(checkedOutBooks.contains(book)){
+        if(library.addBook(book) && checkedOutBooks.contains(book)){
             checkedOutBooks.remove(book);
             Message.SUCCESSFUL_RETURN.print();
             return true;
