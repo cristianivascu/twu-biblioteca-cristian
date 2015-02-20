@@ -11,26 +11,23 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class UserInterfaceTest {
 
     private Customer alice;
     private Presenter presenter;
-    private Book harryPotter1;
-    private Book harryPotter2;
-    private List<Book> books;
     private UserInterface ui;
+    private List<Option> menuOptions = new ArrayList<Option>();
+    private Option checkoutOption;
 
     @Before
     public void setUp() throws Exception{
-        harryPotter1 = new Book("Harry Potter and the Philosopher's Stone","J. K. Rowling", 1997);
-        harryPotter2 = new Book("Harry Potter and the Chamber of Secrets","J. K. Rowling", 1998);
-        books = new ArrayList<Book>();
-        books.add(harryPotter1);
-        books.add(harryPotter2);
         alice = mock(Customer.class);
         presenter = mock(Presenter.class);
-        ui = new UserInterface(alice, presenter);
+        checkoutOption = mock(CheckoutOption.class);
+        menuOptions.add(checkoutOption);
+        ui = new UserInterface(alice, presenter, menuOptions);
     }
 
     @Test
@@ -50,5 +47,17 @@ public class UserInterfaceTest {
         ui.getUserInput(5);
         verify(presenter).displayMessage(Message.INVALID_MENU_OPTION);
         System.setIn(in);
+    }
+
+    @Test
+    public void shouldDisplayMainMenuOptions(){
+        ui.showMainMenu();
+        verify(presenter).displayItemsAsMenuOptions(menuOptions);
+    }
+
+    @Test
+    public void shouldDelegateOnOptions(){
+        ui.showMainMenu();
+        verify(checkoutOption).onSelect();
     }
 }

@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -10,9 +11,21 @@ public class UserInterface {
     private Customer customer;
     private Presenter presenter;
 
-    public UserInterface(Customer customer, Presenter presenter) {
+    private List<Option> menuOptions;
+
+    public UserInterface(Customer customer, Presenter presenter, List<Option> menuOptions) {
         this.customer = customer;
         this.presenter = presenter;
+        this.menuOptions = menuOptions;
+    }
+
+    public void showMainMenu(){
+        presenter.displayItemsAsMenuOptions(menuOptions);
+        menuOptions.get(0).onSelect();
+    }
+
+    public List<Option> getMenuOptions() {
+        return menuOptions;
     }
 
     public int getUserInput(int maxValue) {

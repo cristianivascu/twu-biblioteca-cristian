@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8bcde13a-4aad-4c84-a193-2fc9de2ba384" name="Default" comment="" />
+    <list default="true" id="8bcde13a-4aad-4c84-a193-2fc9de2ba384" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/UserInterface.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/UserInterface.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/UserInterfaceTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/UserInterfaceTest.java" />
+    </list>
     <ignored path="biblioteca.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -52,8 +55,8 @@
       <file leaf-file-name="CheckoutOptionTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/CheckoutOptionTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="840">
-              <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="20" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="292" max-vertical-offset="840">
+              <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -64,10 +67,11 @@
       <file leaf-file-name="UserInterfaceTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/UserInterfaceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.13316584" vertical-offset="457" max-vertical-offset="900">
-              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.5477387" vertical-offset="637" max-vertical-offset="1035">
+              <caret line="57" column="9" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#513#521#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -76,9 +80,13 @@
       <file leaf-file-name="UserInterface.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/UserInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="510">
-              <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="202" max-vertical-offset="705">
+              <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#652#653#0" expanded="true" />
+                <element signature="e#686#687#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -167,8 +175,8 @@
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/CheckoutOption.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/Presenter.java" />
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/CheckoutOptionTest.java" />
-        <option value="$PROJECT_DIR$/src/com/twu/biblioteca/UserInterface.java" />
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/UserInterfaceTest.java" />
+        <option value="$PROJECT_DIR$/src/com/twu/biblioteca/UserInterface.java" />
       </list>
     </option>
   </component>
@@ -1036,16 +1044,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/CheckoutOptionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="840">
-          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="20" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/CustomerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="1320">
@@ -1057,20 +1055,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/CheckoutOptionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="292" max-vertical-offset="840">
+          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/UserInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="510">
-          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="202" max-vertical-offset="705">
+          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#652#653#0" expanded="true" />
+            <element signature="e#686#687#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/UserInterfaceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13316584" vertical-offset="457" max-vertical-offset="900">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.5477387" vertical-offset="637" max-vertical-offset="1035">
+          <caret line="57" column="9" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#513#521#0" expanded="true" />
           </folding>
         </state>
       </provider>
