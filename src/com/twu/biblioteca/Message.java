@@ -15,8 +15,8 @@ public enum Message {
         this.message = message;
     }
 
-    void print(){
-        System.out.println(message);
+    @Override
+    public String toString() {
+        return message;
     }
-
 }
