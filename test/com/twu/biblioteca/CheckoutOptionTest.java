@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,11 +14,11 @@ import static org.mockito.Mockito.*;
 public class CheckoutOptionTest {
 
     private Customer alice;
+    private Presenter presenter;
     private Book harryPotter1;
     private Book harryPotter2;
     private List<Book> books;
     private Option checkoutOption;
-    private Presenter presenter;
 
     @Before
     public void setUp() throws Exception{
@@ -28,7 +29,7 @@ public class CheckoutOptionTest {
         books.add(harryPotter2);
         alice = mock(Customer.class);
         presenter = mock(Presenter.class);
-        checkoutOption = new CheckoutOption(alice);
+        checkoutOption = new CheckoutOption(alice, presenter);
     }
 
     @Test
@@ -38,4 +39,12 @@ public class CheckoutOptionTest {
         verify(alice).checkAvailableBooks();
         verify(presenter).displayItemsAsMenuOptions(books);
     }
+
+    @Test
+    public void shouldDisplayErrorMessageIfNoBooksAreAvailable(){
+        when(alice.checkAvailableBooks()).thenReturn(new ArrayList<Book>());
+        checkoutOption.onSelect();
+        verify(presenter).displayMessage(Message.NO_BOOKS);
+    }
+
 }

@@ -7,7 +7,8 @@ public enum Message {
     SUCCESSFUL_CHECKOUT("Thank you! Enjoy the book."),
     UNSUCCESSFUL_CHECKOUT("That book is not available."),
     SUCCESSFUL_RETURN("Thank you for returning the book."),
-    UNSUCCESSFUL_RETURN("That is not a valid book to return.");
+    UNSUCCESSFUL_RETURN("That is not a valid book to return."),
+    NO_BOOKS("There are no books available!");
 
     private final String message;
 

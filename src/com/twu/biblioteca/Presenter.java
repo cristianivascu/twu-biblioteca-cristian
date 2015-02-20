@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Presenter {
 
-    public static <T> String displayItemsAsMenuOptions(List<T> items){
+    public <T> String displayItemsAsMenuOptions(List<T> items){
         System.out.println("Choose an option by typing the corresponding number:");
         String result = "";
         for(T item : items){
