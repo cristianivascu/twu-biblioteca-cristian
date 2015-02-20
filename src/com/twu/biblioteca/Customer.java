@@ -20,15 +20,19 @@ public class Customer {
         return Message.UNSUCCESSFUL_CHECKOUT;
     }
 
-    public List<Book> getCheckedOutBooks() {
-        return checkedOutBooks;
-    }
-
     public Message returnBook(Book book) {
         if(library.addBook(book) && checkedOutBooks.contains(book)){
             checkedOutBooks.remove(book);
             return Message.SUCCESSFUL_RETURN;
         }
         return Message.UNSUCCESSFUL_RETURN;
+    }
+
+    public List<Book> checkAvailableBooks() {
+        return library.listAvailableBooks();
+    }
+
+    public List<Book> getCheckedOutBooks() {
+        return checkedOutBooks;
     }
 }

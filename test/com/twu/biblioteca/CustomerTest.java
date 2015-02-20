@@ -4,6 +4,9 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
@@ -60,6 +63,15 @@ public class CustomerTest {
         when(bangaloreLibrary.addBook(harryPotter1)).thenReturn(true);
         alice.returnBook(harryPotter1);
         assertFalse(alice.getCheckedOutBooks().contains(harryPotter1));
+    }
+
+    @Test
+    public void shouldDelegateOnLibraryToListAllBooks(){
+        List<Book> returnedByLibrary = new ArrayList<Book>();
+        when(bangaloreLibrary.listAvailableBooks()).thenReturn(returnedByLibrary);
+        List<Book> returnedByCustomer = alice.checkAvailableBooks();
+        verify(bangaloreLibrary).listAvailableBooks();
+        assertEquals(returnedByLibrary,returnedByCustomer);
     }
 
     public void checkOutHarryPotter1() {
