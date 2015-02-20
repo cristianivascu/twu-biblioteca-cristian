@@ -15,10 +15,8 @@ public class Customer {
     public boolean checkout(Book book) {
         if(library.removeBook(book)) {
             checkedOutBooks.add(book);
-            Message.SUCCESSFUL_CHECKOUT.print();
             return true;
         }
-        Message.UNSUCCESSFUL_CHECKOUT.print();
         return false;
     }
 
@@ -29,10 +27,8 @@ public class Customer {
     public boolean returnBook(Book book) {
         if(library.addBook(book) && checkedOutBooks.contains(book)){
             checkedOutBooks.remove(book);
-            Message.SUCCESSFUL_RETURN.print();
             return true;
         }
-        Message.UNSUCCESSFUL_RETURN.print();
         return false;
     }
 }
