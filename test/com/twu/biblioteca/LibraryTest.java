@@ -31,6 +31,11 @@ public class LibraryTest {
     }
 
     @Test
+    public void shouldNotAddNullToInventory() {
+        assertFalse(bangaloreLibrary.addBook(null));
+    }
+
+    @Test
     public void shouldRemoveAvailableBookFromInventory() {
         assertTrue(bangaloreLibrary.removeBook(harryPotter1));
         assertEquals(0, (int) bangaloreLibrary.getInventory().get(harryPotter1));

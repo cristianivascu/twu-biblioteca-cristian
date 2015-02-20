@@ -19,9 +19,12 @@ public class Library {
         return new HashMap<Book, Integer>(inventory);
     }
 
-    public void addBook(Book book) {
+    public boolean addBook(Book book) {
+        if (book==null)
+            return false;
         int quantity = inventory.containsKey(book) ? inventory.get(book) : 0;
         inventory.put(book,quantity+1);
+        return true;
     }
 
     public boolean removeBook(Book book) {
