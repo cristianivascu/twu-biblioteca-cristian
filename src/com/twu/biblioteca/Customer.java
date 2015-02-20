@@ -12,23 +12,23 @@ public class Customer {
         this.library = library;
     }
 
-    public boolean checkout(Book book) {
+    public Message checkout(Book book) {
         if(library.removeBook(book)) {
             checkedOutBooks.add(book);
-            return true;
+            return Message.SUCCESSFUL_CHECKOUT;
         }
-        return false;
+        return Message.UNSUCCESSFUL_CHECKOUT;
     }
 
     public List<Book> getCheckedOutBooks() {
         return checkedOutBooks;
     }
 
-    public boolean returnBook(Book book) {
+    public Message returnBook(Book book) {
         if(library.addBook(book) && checkedOutBooks.contains(book)){
             checkedOutBooks.remove(book);
-            return true;
+            return Message.SUCCESSFUL_RETURN;
         }
-        return false;
+        return Message.UNSUCCESSFUL_RETURN;
     }
 }

@@ -3,6 +3,8 @@ package com.twu.biblioteca;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 import static org.junit.Assert.assertFalse;
@@ -26,9 +28,9 @@ public class CustomerTest {
     @Test
     public void shouldCheckoutAvailableBook(){
         when(bangaloreLibrary.removeBook(harryPotter1)).thenReturn(true);
-        assertTrue(alice.checkout(harryPotter1));
+        assertEquals(Message.SUCCESSFUL_CHECKOUT, alice.checkout(harryPotter1));
         when(bangaloreLibrary.removeBook(harryPotter1)).thenReturn(false);
-        assertFalse(alice.checkout(harryPotter1));
+        assertEquals(Message.UNSUCCESSFUL_CHECKOUT, alice.checkout(harryPotter1));
     }
 
     @Test
@@ -41,15 +43,15 @@ public class CustomerTest {
     public void shouldReturnCheckedOutBook(){
         checkOutHarryPotter1();
         when(bangaloreLibrary.addBook(harryPotter1)).thenReturn(true);
-        assertTrue(alice.returnBook(harryPotter1));
-        assertFalse(alice.returnBook(harryPotter2));
+        assertEquals(Message.SUCCESSFUL_RETURN, alice.returnBook(harryPotter1));
+        assertEquals(Message.UNSUCCESSFUL_RETURN, alice.returnBook(harryPotter2));
     }
 
     @Test
     public void shouldReturnValidBook(){
         checkOutHarryPotter1();
         when(bangaloreLibrary.addBook(harryPotter1)).thenReturn(false);
-        assertFalse(alice.returnBook(harryPotter1));
+        assertEquals(Message.UNSUCCESSFUL_RETURN, alice.returnBook(harryPotter1));
     }
 
     @Test
