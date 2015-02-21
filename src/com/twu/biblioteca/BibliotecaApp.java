@@ -22,7 +22,7 @@ public class BibliotecaApp {
         mainMenuOptions.add(new CheckoutOption(alice, presenter));
         mainMenuOptions.add(new ReturnOption());
         mainMenuOptions.add(new QuitOption());
-        UserInterface ui = new UserInterface(alice, presenter, mainMenuOptions);
+        UserInterface ui = new UserInterface(presenter, mainMenuOptions);
 
         ui.mainMenu();
 

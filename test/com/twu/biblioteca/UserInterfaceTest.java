@@ -4,16 +4,13 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 public class UserInterfaceTest {
 
-    private Customer alice;
     private Presenter presenter;
     private UserInterface ui;
     private List<Option> menuOptions = new ArrayList<Option>();
@@ -24,7 +21,6 @@ public class UserInterfaceTest {
 
     @Before
     public void setUp() throws Exception{
-        alice = mock(Customer.class);
         presenter = mock(Presenter.class);
         listOption = mock(ListOption.class);
         checkoutOption = mock(CheckoutOption.class);
@@ -34,7 +30,7 @@ public class UserInterfaceTest {
         menuOptions.add(checkoutOption);
         menuOptions.add(returnOption);
         menuOptions.add(quitOption);
-        ui = new UserInterface(alice, presenter, menuOptions);
+        ui = new UserInterface(presenter, menuOptions);
     }
 
     @Test
