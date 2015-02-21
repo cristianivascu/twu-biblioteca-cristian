@@ -3,9 +3,6 @@ package com.twu.biblioteca;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * Created by cristianivascu on 20/02/2015.
- */
 public class CheckoutOption implements Option{
     private Customer customer;
     private Presenter presenter;

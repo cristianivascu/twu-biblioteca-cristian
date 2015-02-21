@@ -9,8 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 public class UserInterfaceTest {
 
@@ -18,63 +17,50 @@ public class UserInterfaceTest {
     private Presenter presenter;
     private UserInterface ui;
     private List<Option> menuOptions = new ArrayList<Option>();
-    private Option checkoutOption;
     private Option listOption;
+    private Option checkoutOption;
+    private Option returnOption;
+    private Option quitOption;
 
     @Before
     public void setUp() throws Exception{
         alice = mock(Customer.class);
         presenter = mock(Presenter.class);
-        checkoutOption = mock(CheckoutOption.class);
         listOption = mock(ListOption.class);
+        checkoutOption = mock(CheckoutOption.class);
+        returnOption = mock(ReturnOption.class);
+        quitOption = mock(QuitOption.class);
         menuOptions.add(listOption);
         menuOptions.add(checkoutOption);
+        menuOptions.add(returnOption);
+        menuOptions.add(quitOption);
         ui = new UserInterface(alice, presenter, menuOptions);
     }
 
     @Test
-    public void shouldReturnValidUserInput() {
-
-        ByteArrayInputStream in = new ByteArrayInputStream("4".getBytes());
-        System.setIn(in);
-        assertEquals(4, ui.getUserInput(5));
-        System.setIn(System.in);
-
-    }
-
-    @Test
-    public void shouldDisplayErrorWhenInputInvalid() {
-        ByteArrayInputStream in = new ByteArrayInputStream("6\n3".getBytes());
-        System.setIn(in);
-        ui.getUserInput(5);
-        verify(presenter).displayMessage(Message.INVALID_MENU_OPTION);
-        System.setIn(System.in);
-    }
-
-    @Test
     public void shouldDisplayMainMenuOptions(){
-        ByteArrayInputStream in = new ByteArrayInputStream("1".getBytes());
-        System.setIn(in);
+        when(presenter.getUserInput(4)).thenReturn(4);
         ui.mainMenu();
         verify(presenter).displayItemsAsMenuOptions(menuOptions);
-        System.setIn(System.in);
     }
 
     @Test
-    public void shouldDelegateOnFirstOptionIfChosen(){
-        ByteArrayInputStream in = new ByteArrayInputStream("1".getBytes());
-        System.setIn(in);
+    public void shouldProvideCorrectMenuLimitToPresenter(){
+        when(presenter.getUserInput(4)).thenReturn(4);
+        ui.mainMenu();
+        verify(presenter).getUserInput(menuOptions.size());
+    }
+
+    @Test
+    public void shouldDelegateOnChosenOption(){
+        when(presenter.getUserInput(4)).thenReturn(1,2,3,4);
         ui.mainMenu();
         verify(listOption).onSelect();
-        System.setIn(System.in);
+        verify(checkoutOption).onSelect();
+        verify(returnOption).onSelect();
+        verify(quitOption).onSelect();
     }
 
-    @Test
-    public void shouldDelegateOnSecondOptionIfChosen(){
-        ByteArrayInputStream in = new ByteArrayInputStream("2".getBytes());
-        System.setIn(in);
-        ui.mainMenu();
-        verify(checkoutOption).onSelect();
-        System.setIn(System.in);
-    }
+
+
 }
