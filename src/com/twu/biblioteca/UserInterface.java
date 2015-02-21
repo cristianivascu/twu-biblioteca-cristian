@@ -14,6 +14,9 @@ public class UserInterface {
     }
 
     public void mainMenu(){
+
+        presenter.displayMessage(Message.WELCOME_MESSAGE);
+
         Option optionSelected;
         do{
             presenter.displayItemsAsMenuOptions(menuOptions);
