@@ -17,9 +17,9 @@ public class UserInterface {
     }
 
     public void mainMenu(){
-        presenter.displayItemsAsMenuOptions(menuOptions);
         Option optionSelected;
         do{
+            presenter.displayItemsAsMenuOptions(menuOptions);
             int userInput = presenter.getUserInput(menuOptions.size());
             optionSelected = menuOptions.get(userInput-1);
             optionSelected.onSelect();
