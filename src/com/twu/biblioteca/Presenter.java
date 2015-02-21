@@ -8,9 +8,10 @@ public class Presenter {
     public <T> String displayItemsAsMenuOptions(List<T> items){
         System.out.println("Choose an option by typing the corresponding number:");
         String result = "";
+        int counter = 1;
         for(T item : items){
-            int optionNumber = items.indexOf(item)+1;
-            result+=optionNumber + ". " + item+"\n";
+            result+=counter + ". " + item+"\n";
+            counter++;
         }
         System.out.print(result);
         return result;
