@@ -21,7 +21,8 @@ public class CheckoutOption implements Option{
             presenter.displayItemsAsMenuOptions(books);
             int chosenBookNumber = presenter.getUserInput(books.size());
             Book selectedBook = books.get(chosenBookNumber - 1);
-            customer.checkout(selectedBook);
+            Message checkoutResult = customer.checkout(selectedBook);
+            presenter.displayMessage(checkoutResult);
         }
     }
 
