@@ -19,9 +19,10 @@ public class UserInterface {
         this.menuOptions = menuOptions;
     }
 
-    public void showMainMenu(){
+    public void mainMenu(){
         presenter.displayItemsAsMenuOptions(menuOptions);
-        menuOptions.get(0).onSelect();
+        int optionSelected = getUserInput(menuOptions.size());
+        menuOptions.get(optionSelected-1).onSelect();
     }
 
     public List<Option> getMenuOptions() {

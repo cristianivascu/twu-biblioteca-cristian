@@ -11,7 +11,6 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 public class UserInterfaceTest {
 
@@ -20,12 +19,15 @@ public class UserInterfaceTest {
     private UserInterface ui;
     private List<Option> menuOptions = new ArrayList<Option>();
     private Option checkoutOption;
+    private Option listOption;
 
     @Before
     public void setUp() throws Exception{
         alice = mock(Customer.class);
         presenter = mock(Presenter.class);
         checkoutOption = mock(CheckoutOption.class);
+        listOption = mock(ListOption.class);
+        menuOptions.add(listOption);
         menuOptions.add(checkoutOption);
         ui = new UserInterface(alice, presenter, menuOptions);
     }
@@ -46,18 +48,33 @@ public class UserInterfaceTest {
         System.setIn(in);
         ui.getUserInput(5);
         verify(presenter).displayMessage(Message.INVALID_MENU_OPTION);
-        System.setIn(in);
+        System.setIn(System.in);
     }
 
     @Test
     public void shouldDisplayMainMenuOptions(){
-        ui.showMainMenu();
+        ByteArrayInputStream in = new ByteArrayInputStream("1".getBytes());
+        System.setIn(in);
+        ui.mainMenu();
         verify(presenter).displayItemsAsMenuOptions(menuOptions);
+        System.setIn(System.in);
     }
 
     @Test
-    public void shouldDelegateOnOptions(){
-        ui.showMainMenu();
+    public void shouldDelegateOnFirstOptionIfChosen(){
+        ByteArrayInputStream in = new ByteArrayInputStream("1".getBytes());
+        System.setIn(in);
+        ui.mainMenu();
+        verify(listOption).onSelect();
+        System.setIn(System.in);
+    }
+
+    @Test
+    public void shouldDelegateOnSecondOptionIfChosen(){
+        ByteArrayInputStream in = new ByteArrayInputStream("2".getBytes());
+        System.setIn(in);
+        ui.mainMenu();
         verify(checkoutOption).onSelect();
+        System.setIn(System.in);
     }
 }
