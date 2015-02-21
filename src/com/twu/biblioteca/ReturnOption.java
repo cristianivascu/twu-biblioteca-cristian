@@ -6,4 +6,9 @@ public class ReturnOption implements Option{
     public void onSelect() {
 
     }
+
+    @Override
+    public String toString() {
+        return "Return a book";
+    }
 }

@@ -5,4 +5,9 @@ public class ListOption implements Option {
     public void onSelect() {
 
     }
+
+    @Override
+    public String toString() {
+        return "List available books";
+    }
 }

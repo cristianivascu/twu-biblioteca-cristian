@@ -26,5 +26,8 @@ public class CheckoutOption implements Option{
         }
     }
 
-
+    @Override
+    public String toString() {
+        return "Checkout a book";
+    }
 }

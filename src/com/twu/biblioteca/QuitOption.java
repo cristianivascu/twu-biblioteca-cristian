@@ -5,4 +5,9 @@ public class QuitOption implements Option{
     public void onSelect() {
 
     }
+
+    @Override
+    public String toString() {
+        return "Quit Biblioteca";
+    }
 }
