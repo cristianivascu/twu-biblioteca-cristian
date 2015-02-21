@@ -5,16 +5,15 @@ import java.util.List;
 public class CheckoutOption implements Option{
     private Customer customer;
     private Presenter presenter;
-    List<Book> books;
 
     public CheckoutOption(Customer customer, Presenter presenter) {
         this.customer = customer;
         this.presenter = presenter;
-        books = customer.checkAvailableBooks();
     }
 
     @Override
     public void onSelect() {
+        List<Book> books = customer.checkAvailableBooks();
         if(books.isEmpty()){
             presenter.displayMessage(Message.NO_BOOKS);
         }else {

@@ -39,7 +39,6 @@ public class CheckoutOptionTest {
     @Test
     public void shouldDisplayErrorMessageIfNoBooksAreAvailable(){
         when(alice.checkAvailableBooks()).thenReturn(new ArrayList<Book>());
-        checkoutOption = new CheckoutOption(alice, presenter);
         checkoutOption.onSelect();
         verify(presenter).displayMessage(Message.NO_BOOKS);
     }
