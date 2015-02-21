@@ -20,7 +20,7 @@ public class BibliotecaApp {
         Presenter presenter = new Presenter();
         mainMenuOptions.add(new ListOption());
         mainMenuOptions.add(new CheckoutOption(alice, presenter));
-        mainMenuOptions.add(new ReturnOption());
+        mainMenuOptions.add(new ReturnOption(alice, presenter));
         mainMenuOptions.add(new QuitOption());
         UserInterface ui = new UserInterface(presenter, mainMenuOptions);
 
