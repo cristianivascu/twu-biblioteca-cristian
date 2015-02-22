@@ -8,6 +8,6 @@ public class QuitOption implements Option{
 
     @Override
     public String toString() {
-        return "Quit Biblioteca";
+        return "Exit";
     }
 }

@@ -23,22 +23,24 @@ public class CheckoutOptionTest {
         alice = mock(Customer.class);
         when(alice.checkAvailableBooks()).thenReturn(books);
         presenter = mock(Presenter.class);
-        when(presenter.getUserInput(books.size())).thenReturn(1);
         checkoutOption = new CheckoutOption(alice, presenter);
+        int selectedByUser = 1;
+        when(presenter.getUserInput(checkoutOption.getOptions().size())).thenReturn(selectedByUser);
+
     }
 
     @Test
     public void shouldDisplayErrorMessageIfNoBooksAreAvailable(){
         when(alice.checkAvailableBooks()).thenReturn(new ArrayList<Book>());
+        checkoutOption = new CheckoutOption(alice, presenter);
         checkoutOption.onSelect();
-        verify(alice).checkAvailableBooks();
         verify(presenter).displayMessage(Message.NO_BOOKS);
     }
 
     @Test
     public void shouldDisplayAvailableOptionsAsList(){
         checkoutOption.onSelect();
-        verify(presenter).displayItemsAsMenuOptions((checkoutOption).getOptions());
+        verify(presenter).displayItemsAsMenuOptions(checkoutOption.getOptions());
     }
 
     @Test
@@ -46,5 +48,7 @@ public class CheckoutOptionTest {
         checkoutOption.onSelect();
         verify(presenter).getUserInput((checkoutOption).getOptions().size());
     }
+
+
 
 }
