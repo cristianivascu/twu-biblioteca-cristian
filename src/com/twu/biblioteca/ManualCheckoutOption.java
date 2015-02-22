@@ -16,4 +16,9 @@ public class ManualCheckoutOption implements Option{
         presenter.displayMessage(result);
 
     }
+
+    @Override
+    public String toString() {
+        return "Enter a book manually";
+    }
 }

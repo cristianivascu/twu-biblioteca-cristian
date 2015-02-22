@@ -1,8 +1,5 @@
 package com.twu.biblioteca;
 
-/**
- * Created by cristianivascu on 21/02/2015.
- */
 public class BookToCheckoutAsOption implements Option {
     Customer customer;
     Presenter presenter;
@@ -14,10 +11,14 @@ public class BookToCheckoutAsOption implements Option {
         this.book = book;
     }
 
-
     @Override
     public void onSelect() {
         Message result = customer.checkout(book);
         presenter.displayMessage(result);
+    }
+
+    @Override
+    public String toString() {
+        return book.toString();
     }
 }
