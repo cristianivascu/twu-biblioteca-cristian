@@ -21,7 +21,7 @@ public class Customer {
     }
 
     public Message returnBook(Book book) {
-        if(library.addBook(book) && checkedOutBooks.contains(book)){
+        if(checkedOutBooks.contains(book) && library.addBook(book)){
             checkedOutBooks.remove(book);
             return Message.SUCCESSFUL_RETURN;
         }

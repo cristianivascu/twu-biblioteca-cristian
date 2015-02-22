@@ -7,6 +7,10 @@ public class Presenter {
 
     public <T> String displayItemsAsMenuOptions(List<T> items){
         System.out.println("Choose an option by typing the corresponding number:");
+        return displayItemsAsList(items);
+    }
+
+    public <T> String displayItemsAsList(List<T> items) {
         String result = "";
         int counter = 1;
         for(T item : items){
@@ -42,4 +46,5 @@ public class Presenter {
         int year = in.nextInt();
         return new Book(title,author,year);
     }
+
 }

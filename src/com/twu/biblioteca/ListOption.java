@@ -1,9 +1,17 @@
 package com.twu.biblioteca;
 
 public class ListOption implements Option {
+    Customer customer;
+    Presenter presenter;
+
+    public ListOption(Customer customer, Presenter presenter) {
+        this.customer = customer;
+        this.presenter = presenter;
+    }
+
     @Override
     public void onSelect() {
-
+        presenter.displayItemsAsList(customer.checkAvailableBooks());
     }
 
     @Override
