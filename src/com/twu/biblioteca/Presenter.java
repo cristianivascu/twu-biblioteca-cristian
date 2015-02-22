@@ -31,4 +31,8 @@ public class Presenter {
         }
         return userInput;
     }
+
+    public Book getBookFromUser() {
+        return null;
+    }
 }

@@ -13,7 +13,7 @@ public class CheckoutOptionTest {
 
     private Customer alice;
     private Presenter presenter;
-    private Option checkoutOption;
+    private CheckoutOption checkoutOption;
 
     @Before
     public void setUp() throws Exception{
@@ -38,13 +38,13 @@ public class CheckoutOptionTest {
     @Test
     public void shouldDisplayAvailableOptionsAsList(){
         checkoutOption.onSelect();
-        verify(presenter).displayItemsAsMenuOptions(((CheckoutOption) checkoutOption).getOptions());
+        verify(presenter).displayItemsAsMenuOptions((checkoutOption).getOptions());
     }
 
     @Test
     public void shouldProvideCorrectMenuLimitToPresenter(){
         checkoutOption.onSelect();
-        verify(presenter).getUserInput(((CheckoutOption) checkoutOption).getOptions().size());
+        verify(presenter).getUserInput((checkoutOption).getOptions().size());
     }
 
 }
