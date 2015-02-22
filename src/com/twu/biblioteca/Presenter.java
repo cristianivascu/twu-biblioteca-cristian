@@ -33,6 +33,13 @@ public class Presenter {
     }
 
     public Book getBookFromUser() {
-        return null;
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter a title");
+        String title = in.nextLine();
+        System.out.println("Enter an author");
+        String author = in.nextLine();
+        System.out.println("Enter a year");
+        int year = in.nextInt();
+        return new Book(title,author,year);
     }
 }

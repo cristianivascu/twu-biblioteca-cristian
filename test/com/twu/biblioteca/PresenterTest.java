@@ -45,4 +45,16 @@ public class PresenterTest {
         System.setIn(System.in);
     }
 
+    @Test
+    public void shouldReturnManuallyTypedBook(){
+        Book harryPotter1 = new Book("Harry Potter and the Philosopher's Stone","J. K. Rowling", 1997);
+        String userInput = "Harry Potter and the Philosopher's Stone\nJ. K. Rowling\n1997";
+        ByteArrayInputStream in = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(in);
+
+        assertEquals(harryPotter1, presenter.getBookFromUser());
+
+        System.setIn(System.in);
+    }
+
 }
