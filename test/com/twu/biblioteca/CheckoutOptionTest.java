@@ -13,14 +13,12 @@ public class CheckoutOptionTest {
 
     private Customer alice;
     private Presenter presenter;
-    private Book harryPotter1;
-    private List<Book> books;
     private Option checkoutOption;
 
     @Before
     public void setUp() throws Exception{
-        harryPotter1 = new Book("Harry Potter and the Philosopher's Stone","J. K. Rowling", 1997);
-        books = new ArrayList<Book>();
+        Book harryPotter1 = new Book("Harry Potter and the Philosopher's Stone","J. K. Rowling", 1997);
+        List<Book> books = new ArrayList<Book>();
         books.add(harryPotter1);
         alice = mock(Customer.class);
         when(alice.checkAvailableBooks()).thenReturn(books);
@@ -30,29 +28,23 @@ public class CheckoutOptionTest {
     }
 
     @Test
-    public void shouldDisplayAvailableBooksAsList(){
-        checkoutOption.onSelect();
-        verify(alice).checkAvailableBooks();
-        verify(presenter).displayItemsAsMenuOptions(books);
-    }
-
-    @Test
     public void shouldDisplayErrorMessageIfNoBooksAreAvailable(){
         when(alice.checkAvailableBooks()).thenReturn(new ArrayList<Book>());
         checkoutOption.onSelect();
+        verify(alice).checkAvailableBooks();
         verify(presenter).displayMessage(Message.NO_BOOKS);
+    }
+
+    @Test
+    public void shouldDisplayAvailableOptionsAsList(){
+        checkoutOption.onSelect();
+        verify(presenter).displayItemsAsMenuOptions(((CheckoutOption) checkoutOption).getOptions());
     }
 
     @Test
     public void shouldProvideCorrectMenuLimitToPresenter(){
         checkoutOption.onSelect();
-        verify(presenter).getUserInput(books.size());
-    }
-
-    @Test
-    public void shouldDelegateCheckoutWithCorrectBook(){
-        checkoutOption.onSelect();
-        verify(alice).checkout(harryPotter1);
+        verify(presenter).getUserInput(((CheckoutOption) checkoutOption).getOptions().size());
     }
 
 }
