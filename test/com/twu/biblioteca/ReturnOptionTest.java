@@ -13,27 +13,21 @@ public class ReturnOptionTest {
 
     private Customer alice;
     private Presenter presenter;
-    private Book harryPotter1;
-    private List<Book> books;
-    private Option returnOption;
+    private ReturnOption returnOption;
+    private int totalOptions;
 
     @Before
     public void setUp() throws Exception{
-        harryPotter1 = new Book("Harry Potter and the Philosopher's Stone","J. K. Rowling", 1997);
-        books = new ArrayList<Book>();
+        Book harryPotter1 = new Book("Harry Potter and the Philosopher's Stone","J. K. Rowling", 1997);
+        List<Book> books = new ArrayList<Book>();
         books.add(harryPotter1);
         alice = mock(Customer.class);
         when(alice.getCheckedOutBooks()).thenReturn(books);
         presenter = mock(Presenter.class);
-        when(presenter.getUserInput(books.size())).thenReturn(1);
         returnOption = new ReturnOption(alice, presenter);
-    }
+        totalOptions = books.size() + 2; //a book, enter manually, quit
+        when(presenter.getUserInput(totalOptions)).thenReturn(1);
 
-    @Test
-    public void shouldDisplayCheckedOutBooksAsList(){
-        returnOption.onSelect();
-        verify(alice).getCheckedOutBooks();
-        verify(presenter).displayItemsAsMenuOptions(books);
     }
 
     @Test
@@ -44,15 +38,15 @@ public class ReturnOptionTest {
     }
 
     @Test
-    public void shouldProvideCorrectMenuLimitToPresenter(){
+    public void shouldDisplayAvailableOptionsAsList(){
         returnOption.onSelect();
-        verify(presenter).getUserInput(books.size());
+        verify(presenter).displayItemsAsMenuOptions(returnOption.getOptions());
     }
 
     @Test
-    public void shouldDelegateReturnWithCorrectBook(){
+    public void shouldProvideCorrectMenuLimitToPresenter(){
         returnOption.onSelect();
-        verify(alice).returnBook(harryPotter1);
+        verify(presenter).getUserInput(totalOptions);
     }
 
 }

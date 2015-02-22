@@ -49,6 +49,4 @@ public class CheckoutOptionTest {
         verify(presenter).getUserInput(totalOptions);
     }
 
-
-
 }
