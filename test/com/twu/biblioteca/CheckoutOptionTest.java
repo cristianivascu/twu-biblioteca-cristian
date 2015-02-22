@@ -14,6 +14,7 @@ public class CheckoutOptionTest {
     private Customer alice;
     private Presenter presenter;
     private CheckoutOption checkoutOption;
+    private int totalOptions;
 
     @Before
     public void setUp() throws Exception{
@@ -24,15 +25,14 @@ public class CheckoutOptionTest {
         when(alice.checkAvailableBooks()).thenReturn(books);
         presenter = mock(Presenter.class);
         checkoutOption = new CheckoutOption(alice, presenter);
-        int selectedByUser = 1;
-        when(presenter.getUserInput(checkoutOption.getOptions().size())).thenReturn(selectedByUser);
+        totalOptions = books.size() + 2; //a book, enter manually, quit
+        when(presenter.getUserInput(totalOptions)).thenReturn(1);
 
     }
 
     @Test
     public void shouldDisplayErrorMessageIfNoBooksAreAvailable(){
         when(alice.checkAvailableBooks()).thenReturn(new ArrayList<Book>());
-        checkoutOption = new CheckoutOption(alice, presenter);
         checkoutOption.onSelect();
         verify(presenter).displayMessage(Message.NO_BOOKS);
     }
@@ -46,7 +46,7 @@ public class CheckoutOptionTest {
     @Test
     public void shouldProvideCorrectMenuLimitToPresenter(){
         checkoutOption.onSelect();
-        verify(presenter).getUserInput((checkoutOption).getOptions().size());
+        verify(presenter).getUserInput(totalOptions);
     }
 
 
