@@ -25,8 +25,5 @@ public class BibliotecaApp {
         UserInterface ui = new UserInterface(presenter, mainMenuOptions);
 
         ui.mainMenu();
-
-
-        System.out.println("Hello, world!");
     }
 }

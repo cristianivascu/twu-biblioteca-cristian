@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class Book {
+public class Book implements Item{
 
     private final String author;
     private final String title;
