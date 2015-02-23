@@ -9,10 +9,10 @@ import static org.mockito.Mockito.*;
 
 public class ManualCheckoutOptionTest {
 
-    ManualCheckoutOption manualCheckout;
-    Presenter presenter;
-    Customer alice;
-    Book harryPotter1;
+    private ManualCheckoutOption manualCheckout;
+    private Presenter presenter;
+    private Customer alice;
+    private Book harryPotter1;
 
     @Before
     public void setUp() throws Exception{

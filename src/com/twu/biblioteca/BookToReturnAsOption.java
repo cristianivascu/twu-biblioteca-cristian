@@ -1,9 +1,9 @@
 package com.twu.biblioteca;
 
 public class BookToReturnAsOption implements Option {
-    Customer customer;
-    Presenter presenter;
-    Book book;
+    private Customer customer;
+    private Presenter presenter;
+    private Book book;
 
     public BookToReturnAsOption(Customer customer, Presenter presenter, Book book) {
         this.customer = customer;

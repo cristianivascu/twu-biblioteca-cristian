@@ -18,7 +18,7 @@ public class CustomerTest {
     private Customer alice;
     private Book harryPotter1;
     private Book harryPotter2;
-    Library bangaloreLibrary;
+    private Library bangaloreLibrary;
 
     @Before
     public void setUp() throws Exception{

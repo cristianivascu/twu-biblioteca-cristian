@@ -13,7 +13,7 @@ public class BookTest {
     private Book harryPotter1;
     private Book harryPotter1Copy;
     private Book harryPotter2;
-    Library bangaloreLibrary;
+    private Library bangaloreLibrary;
     private Map<Book, Integer> inventory = new HashMap<Book, Integer>();
 
     @Before

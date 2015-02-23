@@ -1,8 +1,8 @@
 package com.twu.biblioteca;
 
 public class ListOption implements Option {
-    Customer customer;
-    Presenter presenter;
+    private Customer customer;
+    private Presenter presenter;
 
     public ListOption(Customer customer, Presenter presenter) {
         this.customer = customer;

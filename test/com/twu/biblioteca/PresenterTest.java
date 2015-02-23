@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 
 public class PresenterTest {
 
-    Presenter presenter;
+    private Presenter presenter;
 
     @Before
     public void setUp() throws Exception{

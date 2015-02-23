@@ -8,10 +8,10 @@ import static org.mockito.Mockito.*;
 
 public class ManualReturnOptionTest {
 
-    ManualReturnOption manualReturn;
-    Presenter presenter;
-    Customer alice;
-    Book harryPotter1;
+    private ManualReturnOption manualReturn;
+    private Presenter presenter;
+    private Customer alice;
+    private Book harryPotter1;
 
     @Before
     public void setUp() throws Exception{
