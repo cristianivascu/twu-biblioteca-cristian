@@ -1,11 +1,11 @@
 package com.twu.biblioteca;
 
-public class ManualBookCheckoutOption implements Option{
+public class BookManualCheckoutOption implements Option{
 
     private Customer customer;
     private Presenter presenter;
 
-    public ManualBookCheckoutOption(Customer customer, Presenter presenter){
+    public BookManualCheckoutOption(Customer customer, Presenter presenter){
         this.customer = customer;
         this.presenter = presenter;
     }

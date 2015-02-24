@@ -1,24 +1,24 @@
 package com.twu.biblioteca;
 
-public class ManualMovieCheckoutOption implements Option{
+public class BookManualReturnOption implements Option{
 
     private Customer customer;
     private Presenter presenter;
 
-    public ManualMovieCheckoutOption(Customer customer, Presenter presenter){
+    public BookManualReturnOption(Customer customer, Presenter presenter){
         this.customer = customer;
         this.presenter = presenter;
     }
 
     public void onSelect() {
-        Movie enteredMovie = presenter.getMovieFromUser();
-        Message result = customer.checkoutMovie(enteredMovie);
+        Book enteredBook = presenter.getBookFromUser();
+        Message result = customer.returnBook(enteredBook);
         presenter.displayMessage(result);
 
     }
 
     @Override
     public String toString() {
-        return "Enter a movie manually";
+        return "Enter a book manually";
     }
 }

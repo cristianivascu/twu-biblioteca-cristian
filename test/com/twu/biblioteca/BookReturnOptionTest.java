@@ -9,11 +9,11 @@ import java.util.List;
 
 import static org.mockito.Mockito.*;
 
-public class ReturnOptionTest {
+public class BookReturnOptionTest {
 
     private Customer alice;
     private Presenter presenter;
-    private ReturnOption returnOption;
+    private BookReturnOption bookReturnOption;
     private int totalOptions;
 
     @Before
@@ -24,7 +24,7 @@ public class ReturnOptionTest {
         alice = mock(Customer.class);
         when(alice.getCheckedOutBooks()).thenReturn(books);
         presenter = mock(Presenter.class);
-        returnOption = new ReturnOption(alice, presenter);
+        bookReturnOption = new BookReturnOption(alice, presenter);
         totalOptions = books.size() + 2; //a book, enter manually, quit
         when(presenter.getUserInput(totalOptions)).thenReturn(1);
 
@@ -33,19 +33,19 @@ public class ReturnOptionTest {
     @Test
     public void shouldDisplayErrorMessageIfNoBooksAreAvailable(){
         when(alice.getCheckedOutBooks()).thenReturn(new ArrayList<Book>());
-        returnOption.onSelect();
+        bookReturnOption.onSelect();
         verify(presenter).displayMessage(Message.NO_BOOKS);
     }
 
     @Test
     public void shouldDisplayAvailableOptionsAsList(){
-        returnOption.onSelect();
-        verify(presenter).displayItemsAsMenuOptions(returnOption.getOptions());
+        bookReturnOption.onSelect();
+        verify(presenter).displayItemsAsMenuOptions(bookReturnOption.getOptions());
     }
 
     @Test
     public void shouldProvideCorrectMenuLimitToPresenter(){
-        returnOption.onSelect();
+        bookReturnOption.onSelect();
         verify(presenter).getUserInput(totalOptions);
     }
 

@@ -6,9 +6,9 @@ import org.junit.Test;
 
 import static org.mockito.Mockito.*;
 
-public class ManualMovieCheckoutOptionTest {
+public class MovieManualCheckoutOptionTest {
 
-    private ManualMovieCheckoutOption manualMovieCheckoutOption;
+    private MovieManualCheckoutOption movieManualCheckoutOption;
     private Presenter presenter;
     private Customer alice;
     private Movie godfather;
@@ -17,7 +17,7 @@ public class ManualMovieCheckoutOptionTest {
     public void setUp() throws Exception{
         presenter = mock(Presenter.class);
         alice = mock(Customer.class);
-        manualMovieCheckoutOption = new ManualMovieCheckoutOption(alice, presenter);
+        movieManualCheckoutOption = new MovieManualCheckoutOption(alice, presenter);
         godfather = new Movie("The Godfather",1972,"Francis Ford Coppola");
         when(presenter.getMovieFromUser()).thenReturn(godfather);
         when(alice.checkoutMovie(godfather)).thenReturn(Message.SUCCESSFUL_MOVIE_CHECKOUT);
@@ -25,19 +25,19 @@ public class ManualMovieCheckoutOptionTest {
 
     @Test
     public void shouldGetEnteredMovieFromPresenter(){
-        manualMovieCheckoutOption.onSelect();
+        movieManualCheckoutOption.onSelect();
         verify(presenter).getMovieFromUser();
     }
 
     @Test
     public void shouldDelegateCheckoutWithCorrectMovie(){
-        manualMovieCheckoutOption.onSelect();
+        movieManualCheckoutOption.onSelect();
         verify(alice).checkoutMovie(godfather);
     }
 
     @Test
     public void shouldDisplayCheckoutResult(){
-        manualMovieCheckoutOption.onSelect();
+        movieManualCheckoutOption.onSelect();
         verify(presenter).displayMessage(alice.checkoutMovie(godfather));
     }
 }

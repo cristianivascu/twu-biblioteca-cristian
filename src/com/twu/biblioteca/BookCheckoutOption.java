@@ -26,7 +26,7 @@ public class BookCheckoutOption extends ItemActionOption{
 
     @Override
     Option getManualOption() {
-        return new ManualBookCheckoutOption(customer, presenter);
+        return new BookManualCheckoutOption(customer, presenter);
     }
 
     @Override

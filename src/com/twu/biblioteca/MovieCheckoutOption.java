@@ -26,7 +26,7 @@ public class MovieCheckoutOption extends ItemActionOption{
 
     @Override
     Option getManualOption() {
-        return new ManualMovieCheckoutOption(customer, presenter);
+        return new MovieManualCheckoutOption(customer, presenter);
     }
 
     @Override

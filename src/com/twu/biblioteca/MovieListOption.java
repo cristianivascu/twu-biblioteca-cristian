@@ -2,11 +2,11 @@ package com.twu.biblioteca;
 
 import java.util.List;
 
-public class ListMoviesOption implements Option {
+public class MovieListOption implements Option {
     private Customer customer;
     private Presenter presenter;
 
-    public ListMoviesOption(Customer customer, Presenter presenter) {
+    public MovieListOption(Customer customer, Presenter presenter) {
         this.customer = customer;
         this.presenter = presenter;
     }

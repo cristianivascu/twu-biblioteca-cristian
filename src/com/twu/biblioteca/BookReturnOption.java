@@ -2,9 +2,9 @@ package com.twu.biblioteca;
 
 import java.util.List;
 
-public class ReturnOption extends ItemActionOption{
+public class BookReturnOption extends ItemActionOption{
 
-    public ReturnOption(Customer customer, Presenter presenter){
+    public BookReturnOption(Customer customer, Presenter presenter){
         this.customer = customer;
         this.presenter = presenter;
     }
@@ -26,7 +26,7 @@ public class ReturnOption extends ItemActionOption{
 
     @Override
     Option getManualOption() {
-        return new ManualBookReturnOption(customer, presenter);
+        return new BookManualReturnOption(customer, presenter);
     }
 
     @Override

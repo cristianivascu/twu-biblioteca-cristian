@@ -26,11 +26,11 @@ public class BibliotecaApp {
 
         List<Option> mainMenuOptions = new ArrayList<Option>();
         Presenter presenter = new Presenter();
-        mainMenuOptions.add(new ListBooksOption(alice, presenter));
+        mainMenuOptions.add(new BookListOption(alice, presenter));
         mainMenuOptions.add(new BookCheckoutOption(alice, presenter));
-        mainMenuOptions.add(new ReturnOption(alice, presenter));
+        mainMenuOptions.add(new BookReturnOption(alice, presenter));
         mainMenuOptions.add(new MovieCheckoutOption(alice,presenter));
-        mainMenuOptions.add(new ListMoviesOption(alice,presenter));
+        mainMenuOptions.add(new MovieListOption(alice,presenter));
         mainMenuOptions.add(new QuitOption());
         UserInterface ui = new UserInterface(presenter, mainMenuOptions);
 
