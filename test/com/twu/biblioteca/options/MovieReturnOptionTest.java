@@ -1,6 +1,11 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.options;
 
 
+import com.twu.biblioteca.Customer;
+import com.twu.biblioteca.Message;
+import com.twu.biblioteca.Movie;
+import com.twu.biblioteca.Presenter;
+import com.twu.biblioteca.options.MovieReturnOption;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,11 +14,11 @@ import java.util.List;
 
 import static org.mockito.Mockito.*;
 
-public class MovieCheckoutOptionTest {
+public class MovieReturnOptionTest {
 
     private Customer alice;
     private Presenter presenter;
-    private MovieCheckoutOption movieCheckoutOption;
+    private MovieReturnOption movieReturnOption;
     private int totalOptions;
 
     @Before
@@ -22,9 +27,9 @@ public class MovieCheckoutOptionTest {
         List<Movie> movies = new ArrayList<Movie>();
         movies.add(godfather);
         alice = mock(Customer.class);
-        when(alice.checkAvailableMovies()).thenReturn(movies);
+        when(alice.getCheckedOutMovies()).thenReturn(movies);
         presenter = mock(Presenter.class);
-        movieCheckoutOption = new MovieCheckoutOption(alice, presenter);
+        movieReturnOption = new MovieReturnOption(alice, presenter);
         totalOptions = movies.size() + 2; //a movie, enter manually, quit
         when(presenter.getUserInput(totalOptions)).thenReturn(1);
 
@@ -32,20 +37,20 @@ public class MovieCheckoutOptionTest {
 
     @Test
     public void shouldDisplayErrorMessageIfNoMoviesAreAvailable(){
-        when(alice.checkAvailableMovies()).thenReturn(new ArrayList<Movie>());
-        movieCheckoutOption.onSelect();
+        when(alice.getCheckedOutMovies()).thenReturn(new ArrayList<Movie>());
+        movieReturnOption.onSelect();
         verify(presenter).displayMessage(Message.NO_MOVIES);
     }
 
     @Test
     public void shouldDisplayAvailableOptionsAsList(){
-        movieCheckoutOption.onSelect();
-        verify(presenter).displayAsMenu(movieCheckoutOption.getOptions());
+        movieReturnOption.onSelect();
+        verify(presenter).displayAsMenu(movieReturnOption.getOptions());
     }
 
     @Test
     public void shouldProvideCorrectMenuLimitToPresenter(){
-        movieCheckoutOption.onSelect();
+        movieReturnOption.onSelect();
         verify(presenter).getUserInput(totalOptions);
     }
 

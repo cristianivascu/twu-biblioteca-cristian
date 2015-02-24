@@ -1,9 +1,11 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.options;
+
+import com.twu.biblioteca.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class ItemActionOption implements Option{
+public abstract class ItemActionOption implements Option {
     Customer customer;
     Presenter presenter;
     List<Option> options = new ArrayList<Option>();

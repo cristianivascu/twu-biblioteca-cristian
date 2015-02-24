@@ -1,18 +1,20 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.options;
 
-public class BookManualReturnOption implements Option{
+import com.twu.biblioteca.*;
+
+public class BookManualCheckoutOption implements Option {
 
     private Customer customer;
     private Presenter presenter;
 
-    public BookManualReturnOption(Customer customer, Presenter presenter){
+    public BookManualCheckoutOption(Customer customer, Presenter presenter){
         this.customer = customer;
         this.presenter = presenter;
     }
 
     public void onSelect() {
         Book enteredBook = presenter.getBookFromUser();
-        Message result = customer.returnBook(enteredBook);
+        Message result = customer.checkoutBook(enteredBook);
         presenter.displayMessage(result);
 
     }

@@ -1,6 +1,11 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.options;
 
 
+import com.twu.biblioteca.Customer;
+import com.twu.biblioteca.Message;
+import com.twu.biblioteca.Movie;
+import com.twu.biblioteca.Presenter;
+import com.twu.biblioteca.options.MovieToReturnAsOption;
 import org.junit.Before;
 import org.junit.Test;
 

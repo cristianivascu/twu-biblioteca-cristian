@@ -1,6 +1,8 @@
 package com.twu.biblioteca;
 
-public class QuitOption implements Option{
+import com.twu.biblioteca.options.Option;
+
+public class QuitOption implements Option {
     @Override
     public void onSelect() {
 

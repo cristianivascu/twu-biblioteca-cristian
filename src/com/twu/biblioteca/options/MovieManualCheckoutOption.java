@@ -1,6 +1,12 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.options;
 
-public class MovieManualCheckoutOption implements Option{
+import com.twu.biblioteca.Customer;
+import com.twu.biblioteca.Message;
+import com.twu.biblioteca.Movie;
+import com.twu.biblioteca.Presenter;
+import com.twu.biblioteca.options.Option;
+
+public class MovieManualCheckoutOption implements Option {
 
     private Customer customer;
     private Presenter presenter;

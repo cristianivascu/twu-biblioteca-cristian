@@ -1,11 +1,13 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.options;
 
-public class BookToReturnAsOption implements Option {
+import com.twu.biblioteca.*;
+
+public class BookToCheckoutAsOption implements Option {
     private Customer customer;
     private Presenter presenter;
     private Book book;
 
-    public BookToReturnAsOption(Customer customer, Presenter presenter, Book book) {
+    public BookToCheckoutAsOption(Customer customer, Presenter presenter, Book book) {
         this.customer = customer;
         this.presenter = presenter;
         this.book = book;
@@ -13,7 +15,7 @@ public class BookToReturnAsOption implements Option {
 
     @Override
     public void onSelect() {
-        Message result = customer.returnBook(book);
+        Message result = customer.checkoutBook(book);
         presenter.displayMessage(result);
     }
 

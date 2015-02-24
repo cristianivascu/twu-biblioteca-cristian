@@ -1,17 +1,19 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.options;
+
+import com.twu.biblioteca.*;
 
 import java.util.List;
 
-public class MovieReturnOption extends ItemActionOption{
+public class MovieCheckoutOption extends ItemActionOption {
 
-    public MovieReturnOption(Customer customer, Presenter presenter){
+    public MovieCheckoutOption(Customer customer, Presenter presenter) {
         this.customer = customer;
         this.presenter = presenter;
     }
 
     @Override
     List<? extends Item> getItems() {
-        return customer.getCheckedOutMovies();
+        return customer.checkAvailableMovies();
     }
 
     @Override
@@ -21,16 +23,16 @@ public class MovieReturnOption extends ItemActionOption{
 
     @Override
     Option convertItemToOption(Item item) {
-        return new MovieToReturnAsOption(customer,presenter,(Movie) item);
+        return new MovieToCheckoutAsOption(customer,presenter,(Movie) item);
     }
 
     @Override
     Option getManualOption() {
-        return new MovieManualReturnOption(customer, presenter);
+        return new MovieManualCheckoutOption(customer, presenter);
     }
 
     @Override
     public String toString() {
-        return "Return a movie";
+        return "Checkout a movie";
     }
 }

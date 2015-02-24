@@ -1,6 +1,10 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.options;
 
 
+import com.twu.biblioteca.Book;
+import com.twu.biblioteca.Customer;
+import com.twu.biblioteca.Message;
+import com.twu.biblioteca.Presenter;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,11 +13,11 @@ import java.util.List;
 
 import static org.mockito.Mockito.*;
 
-public class BookReturnOptionTest {
+public class BookCheckoutOptionTest {
 
     private Customer alice;
     private Presenter presenter;
-    private BookReturnOption bookReturnOption;
+    private BookCheckoutOption bookCheckoutOption;
     private int totalOptions;
 
     @Before
@@ -22,9 +26,9 @@ public class BookReturnOptionTest {
         List<Book> books = new ArrayList<Book>();
         books.add(harryPotter1);
         alice = mock(Customer.class);
-        when(alice.getCheckedOutBooks()).thenReturn(books);
+        when(alice.checkAvailableBooks()).thenReturn(books);
         presenter = mock(Presenter.class);
-        bookReturnOption = new BookReturnOption(alice, presenter);
+        bookCheckoutOption = new BookCheckoutOption(alice, presenter);
         totalOptions = books.size() + 2; //a book, enter manually, quit
         when(presenter.getUserInput(totalOptions)).thenReturn(1);
 
@@ -32,20 +36,20 @@ public class BookReturnOptionTest {
 
     @Test
     public void shouldDisplayErrorMessageIfNoBooksAreAvailable(){
-        when(alice.getCheckedOutBooks()).thenReturn(new ArrayList<Book>());
-        bookReturnOption.onSelect();
+        when(alice.checkAvailableBooks()).thenReturn(new ArrayList<Book>());
+        bookCheckoutOption.onSelect();
         verify(presenter).displayMessage(Message.NO_BOOKS);
     }
 
     @Test
     public void shouldDisplayAvailableOptionsAsList(){
-        bookReturnOption.onSelect();
-        verify(presenter).displayAsMenu(bookReturnOption.getOptions());
+        bookCheckoutOption.onSelect();
+        verify(presenter).displayAsMenu(bookCheckoutOption.getOptions());
     }
 
     @Test
     public void shouldProvideCorrectMenuLimitToPresenter(){
-        bookReturnOption.onSelect();
+        bookCheckoutOption.onSelect();
         verify(presenter).getUserInput(totalOptions);
     }
 

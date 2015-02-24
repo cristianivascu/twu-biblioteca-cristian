@@ -1,4 +1,10 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.options;
+
+import com.twu.biblioteca.Customer;
+import com.twu.biblioteca.Message;
+import com.twu.biblioteca.Movie;
+import com.twu.biblioteca.Presenter;
+import com.twu.biblioteca.options.Option;
 
 import java.util.List;
 
