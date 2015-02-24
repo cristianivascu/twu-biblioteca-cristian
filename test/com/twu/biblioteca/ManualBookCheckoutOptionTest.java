@@ -4,11 +4,12 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
-public class ManualReturnOptionTest {
+public class ManualBookCheckoutOptionTest {
 
-    private ManualReturnOption manualReturn;
+    private ManualBookCheckoutOption manualCheckout;
     private Presenter presenter;
     private Customer alice;
     private Book harryPotter1;
@@ -17,27 +18,27 @@ public class ManualReturnOptionTest {
     public void setUp() throws Exception{
         presenter = mock(Presenter.class);
         alice = mock(Customer.class);
-        manualReturn = new ManualReturnOption(alice, presenter);
+        manualCheckout = new ManualBookCheckoutOption(alice, presenter);
         harryPotter1 = new Book("Harry Potter and the Philosopher's Stone","J. K. Rowling", 1997);
         when(presenter.getBookFromUser()).thenReturn(harryPotter1);
-        when(alice.returnBook(harryPotter1)).thenReturn(Message.SUCCESSFUL_RETURN);
+        when(alice.checkout(harryPotter1)).thenReturn(Message.SUCCESSFUL_CHECKOUT);
     }
 
     @Test
     public void shouldGetEnteredBookFromPresenter(){
-        manualReturn.onSelect();
+        manualCheckout.onSelect();
         verify(presenter).getBookFromUser();
     }
 
     @Test
-    public void shouldDelegateReturnWithCorrectBook(){
-        manualReturn.onSelect();
-        verify(alice).returnBook(harryPotter1);
+    public void shouldDelegateCheckoutWithCorrectBook(){
+        manualCheckout.onSelect();
+        verify(alice).checkout(harryPotter1);
     }
 
     @Test
-    public void shouldDisplayReturnResult(){
-        manualReturn.onSelect();
-        verify(presenter).displayMessage(alice.returnBook(harryPotter1));
+    public void shouldDisplayCheckoutResult(){
+        manualCheckout.onSelect();
+        verify(presenter).displayMessage(alice.checkout(harryPotter1));
     }
 }

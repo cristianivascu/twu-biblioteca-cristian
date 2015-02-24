@@ -24,10 +24,9 @@ public class MovieCheckoutOption extends ItemActionOption{
         return new MovieToCheckoutAsOption(customer,presenter,(Movie) item);
     }
 
-    /*quit for now*/
     @Override
     Option getManualOption() {
-        return new QuitOption();
+        return new ManualMovieCheckoutOption(customer, presenter);
     }
 
     @Override

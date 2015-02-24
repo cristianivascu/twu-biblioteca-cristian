@@ -47,4 +47,14 @@ public class Presenter {
         return new Book(title,author,year);
     }
 
+    public Movie getMovieFromUser() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter a name");
+        String name = in.nextLine();
+        System.out.println("Enter a director");
+        String director = in.nextLine();
+        System.out.println("Enter a year");
+        int year = in.nextInt();
+        return new Movie(name,year,director);
+    }
 }

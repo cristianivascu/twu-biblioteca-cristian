@@ -26,7 +26,7 @@ public class ReturnOption extends ItemActionOption{
 
     @Override
     Option getManualOption() {
-        return new ManualReturnOption(customer, presenter);
+        return new ManualBookReturnOption(customer, presenter);
     }
 
     @Override

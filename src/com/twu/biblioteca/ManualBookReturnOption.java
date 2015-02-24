@@ -1,11 +1,11 @@
 package com.twu.biblioteca;
 
-public class ManualReturnOption implements Option{
+public class ManualBookReturnOption implements Option{
 
     private Customer customer;
     private Presenter presenter;
 
-    public ManualReturnOption(Customer customer, Presenter presenter){
+    public ManualBookReturnOption(Customer customer, Presenter presenter){
         this.customer = customer;
         this.presenter = presenter;
     }
