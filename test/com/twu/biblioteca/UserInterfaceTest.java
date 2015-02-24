@@ -23,7 +23,7 @@ public class UserInterfaceTest {
     public void setUp() throws Exception{
         presenter = mock(Presenter.class);
         listOption = mock(ListOption.class);
-        checkoutOption = mock(CheckoutOption.class);
+        checkoutOption = mock(BookCheckoutOption.class);
         returnOption = mock(ReturnOption.class);
         quitOption = mock(QuitOption.class);
         menuOptions.add(listOption);

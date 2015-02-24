@@ -57,4 +57,16 @@ public class PresenterTest {
         System.setIn(System.in);
     }
 
+    @Test
+    public void shouldReturnManuallyTypedMovie(){
+        Movie godfather = new Movie("The Godfather",1972,"Francis Ford Coppola");
+        String userInput = "The Godfather\nFrancis Ford Coppola\n1972";
+        ByteArrayInputStream in = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(in);
+
+        assertEquals(godfather, presenter.getMovieFromUser());
+
+        System.setIn(System.in);
+    }
+
 }

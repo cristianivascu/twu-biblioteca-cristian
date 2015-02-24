@@ -2,9 +2,9 @@ package com.twu.biblioteca;
 
 import java.util.List;
 
-public class CheckoutOption extends ItemActionOption{
+public class BookCheckoutOption extends ItemActionOption{
 
-    public CheckoutOption(Customer customer, Presenter presenter) {
+    public BookCheckoutOption(Customer customer, Presenter presenter) {
         this.customer = customer;
         this.presenter = presenter;
     }
