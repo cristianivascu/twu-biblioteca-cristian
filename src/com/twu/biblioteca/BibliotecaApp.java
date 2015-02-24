@@ -23,9 +23,7 @@ public class BibliotecaApp {
         movies.put(godfather, 1);
         Library<Movie> bangaloreMovies = new Library<Movie>(movies);
 
-        Customer alice = new Customer();
-        alice.setBookLibrary(bangaloreBooks);
-        alice.setMovieLibrary(bangaloreMovies);
+        Customer alice = new Customer(bangaloreBooks, bangaloreMovies);
 
         List<Option> mainMenuOptions = new ArrayList<Option>();
         Presenter presenter = new Presenter();

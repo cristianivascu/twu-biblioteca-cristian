@@ -10,11 +10,8 @@ public class Customer {
     private Library<Book> bookLibrary;
     private Library<Movie> movieLibrary;
 
-    public void setBookLibrary(Library<Book> bookLibrary) {
+    public Customer(Library<Book> bookLibrary, Library<Movie> movieLibrary) {
         this.bookLibrary = bookLibrary;
-    }
-
-    public void setMovieLibrary(Library<Movie> movieLibrary) {
         this.movieLibrary = movieLibrary;
     }
 
