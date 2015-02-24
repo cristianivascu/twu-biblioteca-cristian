@@ -16,12 +16,12 @@ public class BibliotecaApp {
         Map<Book,Integer> books = new HashMap<Book, Integer>();
         books.put(harryPotter1, 3);
         books.put(harryPotter2, 1);
-        Library<Book> bangaloreBooks = new Library<Book>(books);
+        Inventory<Book> bangaloreBooks = new Inventory<Book>(books);
 
         Movie godfather = new Movie("The Godfather",1972,"Francis Ford Coppola");
         Map<Movie,Integer> movies = new HashMap<Movie, Integer>();
         movies.put(godfather, 1);
-        Library<Movie> bangaloreMovies = new Library<Movie>(movies);
+        Inventory<Movie> bangaloreMovies = new Inventory<Movie>(movies);
 
         Customer alice = new Customer(bangaloreBooks, bangaloreMovies);
 

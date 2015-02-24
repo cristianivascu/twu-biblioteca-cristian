@@ -7,16 +7,16 @@ import java.util.List;
 public class Customer {
     private List<Book> checkedOutBooks = new ArrayList<Book>();
     private List<Movie> checkedOutMovies = new ArrayList<Movie>();
-    private Library<Book> bookLibrary;
-    private Library<Movie> movieLibrary;
+    private Inventory<Book> bookInventory;
+    private Inventory<Movie> movieInventory;
 
-    public Customer(Library<Book> bookLibrary, Library<Movie> movieLibrary) {
-        this.bookLibrary = bookLibrary;
-        this.movieLibrary = movieLibrary;
+    public Customer(Inventory<Book> bookInventory, Inventory<Movie> movieInventory) {
+        this.bookInventory = bookInventory;
+        this.movieInventory = movieInventory;
     }
 
     public Message checkoutBook(Book book) {
-        if(bookLibrary.removeItem(book)) {
+        if(bookInventory.removeItem(book)) {
             checkedOutBooks.add(book);
             return Message.SUCCESSFUL_BOOK_CHECKOUT;
         }
@@ -24,7 +24,7 @@ public class Customer {
     }
 
     public Message returnBook(Book book) {
-        if(checkedOutBooks.contains(book) && bookLibrary.addItem(book)){
+        if(checkedOutBooks.contains(book) && bookInventory.addItem(book)){
             checkedOutBooks.remove(book);
             return Message.SUCCESSFUL_BOOK_RETURN;
         }
@@ -32,7 +32,7 @@ public class Customer {
     }
 
     public Message checkoutMovie(Movie movie) {
-        if(movieLibrary.removeItem(movie)) {
+        if(movieInventory.removeItem(movie)) {
             checkedOutMovies.add(movie);
             return Message.SUCCESSFUL_MOVIE_CHECKOUT;
         }
@@ -40,7 +40,7 @@ public class Customer {
     }
 
     public Message returnMovie(Movie movie) {
-        if(checkedOutMovies.contains(movie) && movieLibrary.addItem(movie)){
+        if(checkedOutMovies.contains(movie) && movieInventory.addItem(movie)){
             checkedOutMovies.remove(movie);
             return Message.SUCCESSFUL_MOVIE_RETURN;
         }
@@ -48,7 +48,7 @@ public class Customer {
     }
 
     public List<Book> checkAvailableBooks() {
-        return bookLibrary.listAvailableItems();
+        return bookInventory.listAvailableItems();
     }
 
     public List<Book> getCheckedOutBooks() {
@@ -56,7 +56,7 @@ public class Customer {
     }
 
     public List<Movie> checkAvailableMovies() {
-        return movieLibrary.listAvailableItems();
+        return movieInventory.listAvailableItems();
     }
 
     public List<Movie> getCheckedOutMovies() {
