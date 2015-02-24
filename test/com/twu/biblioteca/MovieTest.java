@@ -14,7 +14,7 @@ public class MovieTest {
         Movie m1 = new Movie("The Godfather",1972,"Francis Ford Coppola");
         assertTrue(m1.setRating(4));
         assertFalse(m1.setRating(0));
-        assertFalse(m1.setRating(6));
+        assertFalse(m1.setRating(11));
     }
 
     @Test
@@ -23,8 +23,8 @@ public class MovieTest {
         String expected = "The Godfather, directed by Francis Ford Coppola, released in 1972, rating: N/A";
         assertEquals(expected, m1.toString());
 
-        m1.setRating(5);
-        String expected2 = "The Godfather, directed by Francis Ford Coppola, released in 1972, rating: 5/5";
+        m1.setRating(10);
+        String expected2 = "The Godfather, directed by Francis Ford Coppola, released in 1972, rating: 10/10";
         assertEquals(expected2, m1.toString());
     }
 }

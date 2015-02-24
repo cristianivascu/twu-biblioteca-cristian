@@ -13,7 +13,7 @@ public class Movie implements Item{
     }
 
     public boolean setRating(int rating) {
-        if(rating > 0 && rating <=5) {
+        if(rating > 0 && rating <=10) {
             this.rating = rating;
             return true;
         }
@@ -46,7 +46,7 @@ public class Movie implements Item{
 
     @Override
     public String toString() {
-        String rating = this.rating>0 ? this.rating+"/5" : "N/A";
+        String rating = this.rating>0 ? this.rating+"/10" : "N/A";
         return name + ", directed by "+director+ ", released in "+ year+", rating: "+rating;
     }
 }
