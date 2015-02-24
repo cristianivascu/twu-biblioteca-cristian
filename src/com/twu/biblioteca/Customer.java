@@ -6,14 +6,20 @@ import java.util.List;
 
 public class Customer {
     private List<Book> checkedOutBooks = new ArrayList<Book>();
-    private Library library;
+    private List<Movie> checkedOutMovies = new ArrayList<Movie>();
+    private Library<Book> bookLibrary;
 
-    public Customer(Library library){
-        this.library = library;
+    private Library<Movie> movieLibrary;
+    public void setMovieLibrary(Library<Movie> movieLibrary) {
+        this.movieLibrary = movieLibrary;
+    }
+
+    public Customer(Library<Book> bookLibrary){
+        this.bookLibrary = bookLibrary;
     }
 
     public Message checkout(Book book) {
-        if(library.removeItem(book)) {
+        if(bookLibrary.removeItem(book)) {
             checkedOutBooks.add(book);
             return Message.SUCCESSFUL_CHECKOUT;
         }
@@ -21,18 +27,42 @@ public class Customer {
     }
 
     public Message returnBook(Book book) {
-        if(checkedOutBooks.contains(book) && library.addItem(book)){
+        if(checkedOutBooks.contains(book) && bookLibrary.addItem(book)){
             checkedOutBooks.remove(book);
             return Message.SUCCESSFUL_RETURN;
         }
         return Message.UNSUCCESSFUL_RETURN;
     }
 
+    public Message checkoutMovie(Movie movie) {
+        if(movieLibrary.removeItem(movie)) {
+            checkedOutMovies.add(movie);
+            return Message.SUCCESSFUL_MOVIE_CHECKOUT;
+        }
+        return Message.UNSUCCESSFUL_MOVIE_CHECKOUT;
+    }
+
+    public Message returnMovie(Movie movie) {
+        if(checkedOutMovies.contains(movie) && movieLibrary.addItem(movie)){
+            checkedOutMovies.remove(movie);
+            return Message.SUCCESSFUL_MOVIE_RETURN;
+        }
+        return Message.UNSUCCESSFUL_MOVIE_RETURN;
+    }
+
     public List<Book> checkAvailableBooks() {
-        return library.listAvailableItems();
+        return bookLibrary.listAvailableItems();
     }
 
     public List<Book> getCheckedOutBooks() {
         return checkedOutBooks;
+    }
+
+    public List<Movie> checkAvailableMovies() {
+        return movieLibrary.listAvailableItems();
+    }
+
+    public List<Movie> getCheckedOutMovies() {
+        return checkedOutMovies;
     }
 }

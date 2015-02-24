@@ -8,7 +8,12 @@ public enum Message {
     UNSUCCESSFUL_CHECKOUT("That book is not available."),
     SUCCESSFUL_RETURN("Thank you for returning the book."),
     UNSUCCESSFUL_RETURN("That is not a valid book to return."),
-    NO_BOOKS("There are no books available!");
+    NO_BOOKS("There are no books available!"),
+    SUCCESSFUL_MOVIE_CHECKOUT("Thank you! Enjoy the movie."),
+    UNSUCCESSFUL_MOVIE_CHECKOUT("That movie is not available."),
+    SUCCESSFUL_MOVIE_RETURN("Thank you for returning the movie."),
+    UNSUCCESSFUL_MOVIE_RETURN("That is not a valid movie to return."),
+    NO_MOVIES("There are no movies available!");
 
     private final String message;
 

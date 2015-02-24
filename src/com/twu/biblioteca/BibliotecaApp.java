@@ -14,7 +14,7 @@ public class BibliotecaApp {
         Map<Book,Integer> books = new HashMap<Book, Integer>();
         books.put(harryPotter1, 3);
         books.put(harryPotter2, 1);
-        Library bangalore = new Library(books);
+        Library<Book> bangalore = new Library<Book>(books);
         Customer alice = new Customer(bangalore);
         List<Option> mainMenuOptions = new ArrayList<Option>();
         Presenter presenter = new Presenter();
