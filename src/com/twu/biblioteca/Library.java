@@ -5,41 +5,41 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Library {
+public class Library <T extends Item> {
 
-    private Map<Book, Integer> inventory;
+    private Map<T, Integer> inventory;
 
-    public Library(Map<Book, Integer> inventory) {
+    public Library(Map<T, Integer> inventory) {
         //defensive copying, only Library should manage the inventory
-        this.inventory = new HashMap<Book, Integer>(inventory);
+        this.inventory = new HashMap<T, Integer>(inventory);
     }
 
-    public Map<Book, Integer> getInventory() {
+    public Map<T, Integer> getInventory() {
 
-        return new HashMap<Book, Integer>(inventory);
+        return new HashMap<T, Integer>(inventory);
     }
 
-    public boolean addBook(Book book) {
-        if (book==null)
+    public boolean addItem(T item) {
+        if (item ==null)
             return false;
-        int quantity = inventory.containsKey(book) ? inventory.get(book) : 0;
-        inventory.put(book,quantity+1);
+        int quantity = inventory.containsKey(item) ? inventory.get(item) : 0;
+        inventory.put(item,quantity+1);
         return true;
     }
 
-    public boolean removeBook(Book book) {
-        if(!inventory.containsKey(book) || inventory.get(book) == 0)
+    public boolean removeItem(T item) {
+        if(!inventory.containsKey(item) || inventory.get(item) == 0)
             return false;
-        inventory.put(book, inventory.get(book)-1);
+        inventory.put(item, inventory.get(item)-1);
         return true;
     }
 
-    public List<Book> listAvailableBooks() {
-        List<Book> availableBooks = new ArrayList<Book>();
-        for(Book book:inventory.keySet()){
-            if(inventory.get(book)>0)
-               availableBooks.add(book);
+    public List<T> listAvailableItems() {
+        List<T> availableItems = new ArrayList<T>();
+        for(T item:inventory.keySet()){
+            if(inventory.get(item)>0)
+               availableItems.add(item);
         }
-        return availableBooks;
+        return availableItems;
     }
 }

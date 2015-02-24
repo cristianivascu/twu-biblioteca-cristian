@@ -13,7 +13,7 @@ public class BookTest {
     private Book harryPotter1;
     private Book harryPotter1Copy;
     private Book harryPotter2;
-    private Library bangaloreLibrary;
+    private Library<Book> bangaloreLibrary;
     private Map<Book, Integer> inventory = new HashMap<Book, Integer>();
 
     @Before
@@ -23,7 +23,7 @@ public class BookTest {
         harryPotter2 = new Book("Harry Potter and the Chamber of Secrets","J. K. Rowling", 1998);
         inventory.put(harryPotter1,1);
         inventory.put(harryPotter2,1);
-        bangaloreLibrary = new Library(inventory);
+        bangaloreLibrary = new Library<Book>(inventory);
     }
 
     @Test
@@ -42,8 +42,8 @@ public class BookTest {
     @Test
     public void ensureCorrectBehaviourInLibrary(){
         assertEquals(1, (int) bangaloreLibrary.getInventory().get(harryPotter1));
-        bangaloreLibrary.addBook(harryPotter1);
-        bangaloreLibrary.addBook(harryPotter1Copy);
+        bangaloreLibrary.addItem(harryPotter1);
+        bangaloreLibrary.addItem(harryPotter1Copy);
         assertEquals(3, (int) bangaloreLibrary.getInventory().get(harryPotter1));
         assertEquals(3, (int) bangaloreLibrary.getInventory().get(harryPotter1Copy));
         assertEquals(1, (int) bangaloreLibrary.getInventory().get(harryPotter2));

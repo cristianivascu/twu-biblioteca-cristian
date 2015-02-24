@@ -13,7 +13,7 @@ public class Customer {
     }
 
     public Message checkout(Book book) {
-        if(library.removeBook(book)) {
+        if(library.removeItem(book)) {
             checkedOutBooks.add(book);
             return Message.SUCCESSFUL_CHECKOUT;
         }
@@ -21,7 +21,7 @@ public class Customer {
     }
 
     public Message returnBook(Book book) {
-        if(checkedOutBooks.contains(book) && library.addBook(book)){
+        if(checkedOutBooks.contains(book) && library.addItem(book)){
             checkedOutBooks.remove(book);
             return Message.SUCCESSFUL_RETURN;
         }
@@ -29,7 +29,7 @@ public class Customer {
     }
 
     public List<Book> checkAvailableBooks() {
-        return library.listAvailableBooks();
+        return library.listAvailableItems();
     }
 
     public List<Book> getCheckedOutBooks() {

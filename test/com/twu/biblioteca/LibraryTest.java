@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 
 public class LibraryTest {
 
-    private Library bangaloreLibrary;
+    private Library<Book> bangaloreLibrary;
     private Book harryPotter1;
     private Book harryPotter2;
     private Map<Book, Integer> inventory = new HashMap<Book, Integer>();
@@ -21,37 +21,37 @@ public class LibraryTest {
         harryPotter1 = new Book("Harry Potter and the Philosopher's Stone","J. K. Rowling", 1997);
         harryPotter2 = new Book("Harry Potter and the Chamber of Secrets","J. K. Rowling", 1998);
         inventory.put(harryPotter1, 1);
-        bangaloreLibrary = new Library(inventory);
+        bangaloreLibrary = new Library<Book>(inventory);
     }
 
     @Test
     public void shouldAddBookToInventory() {
-        bangaloreLibrary.addBook(harryPotter2);
+        bangaloreLibrary.addItem(harryPotter2);
         assertEquals(1, (int) bangaloreLibrary.getInventory().get(harryPotter2));
     }
 
     @Test
     public void shouldNotAddNullToInventory() {
-        assertFalse(bangaloreLibrary.addBook(null));
+        assertFalse(bangaloreLibrary.addItem(null));
     }
 
     @Test
     public void shouldRemoveAvailableBookFromInventory() {
-        assertTrue(bangaloreLibrary.removeBook(harryPotter1));
+        assertTrue(bangaloreLibrary.removeItem(harryPotter1));
         assertEquals(0, (int) bangaloreLibrary.getInventory().get(harryPotter1));
-        assertFalse(bangaloreLibrary.removeBook(harryPotter1));
-        assertFalse(bangaloreLibrary.removeBook(harryPotter2));
+        assertFalse(bangaloreLibrary.removeItem(harryPotter1));
+        assertFalse(bangaloreLibrary.removeItem(harryPotter2));
     }
 
     @Test
     public void shouldListAvailableBooks(){
-        bangaloreLibrary.addBook(harryPotter2);
-        assertEquals(2, bangaloreLibrary.listAvailableBooks().size());
-        assertTrue(bangaloreLibrary.listAvailableBooks().contains(harryPotter1));
-        assertTrue(bangaloreLibrary.listAvailableBooks().contains(harryPotter2));
-        bangaloreLibrary.removeBook(harryPotter1);
-        assertEquals(1, bangaloreLibrary.listAvailableBooks().size());
-        assertTrue(bangaloreLibrary.listAvailableBooks().contains(harryPotter2));
+        bangaloreLibrary.addItem(harryPotter2);
+        assertEquals(2, bangaloreLibrary.listAvailableItems().size());
+        assertTrue(bangaloreLibrary.listAvailableItems().contains(harryPotter1));
+        assertTrue(bangaloreLibrary.listAvailableItems().contains(harryPotter2));
+        bangaloreLibrary.removeItem(harryPotter1);
+        assertEquals(1, bangaloreLibrary.listAvailableItems().size());
+        assertTrue(bangaloreLibrary.listAvailableItems().contains(harryPotter2));
         assertEquals(2, bangaloreLibrary.getInventory().size());
     }
 }

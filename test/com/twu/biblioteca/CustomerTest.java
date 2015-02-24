@@ -30,9 +30,9 @@ public class CustomerTest {
 
     @Test
     public void shouldCheckoutAvailableBook(){
-        when(bangaloreLibrary.removeBook(harryPotter1)).thenReturn(true);
+        when(bangaloreLibrary.removeItem(harryPotter1)).thenReturn(true);
         assertEquals(Message.SUCCESSFUL_CHECKOUT, alice.checkout(harryPotter1));
-        when(bangaloreLibrary.removeBook(harryPotter1)).thenReturn(false);
+        when(bangaloreLibrary.removeItem(harryPotter1)).thenReturn(false);
         assertEquals(Message.UNSUCCESSFUL_CHECKOUT, alice.checkout(harryPotter1));
     }
 
@@ -45,7 +45,7 @@ public class CustomerTest {
     @Test
     public void shouldReturnCheckedOutBook(){
         checkOutHarryPotter1();
-        when(bangaloreLibrary.addBook(harryPotter1)).thenReturn(true);
+        when(bangaloreLibrary.addItem(harryPotter1)).thenReturn(true);
         assertEquals(Message.SUCCESSFUL_RETURN, alice.returnBook(harryPotter1));
         assertEquals(Message.UNSUCCESSFUL_RETURN, alice.returnBook(harryPotter2));
     }
@@ -53,14 +53,14 @@ public class CustomerTest {
     @Test
     public void shouldReturnValidBook(){
         checkOutHarryPotter1();
-        when(bangaloreLibrary.addBook(harryPotter1)).thenReturn(false);
+        when(bangaloreLibrary.addItem(harryPotter1)).thenReturn(false);
         assertEquals(Message.UNSUCCESSFUL_RETURN, alice.returnBook(harryPotter1));
     }
 
     @Test
     public void shouldRemoveCheckedOutBookAfterReturn(){
         checkOutHarryPotter1();
-        when(bangaloreLibrary.addBook(harryPotter1)).thenReturn(true);
+        when(bangaloreLibrary.addItem(harryPotter1)).thenReturn(true);
         alice.returnBook(harryPotter1);
         assertFalse(alice.getCheckedOutBooks().contains(harryPotter1));
     }
@@ -68,14 +68,14 @@ public class CustomerTest {
     @Test
     public void shouldDelegateOnLibraryToListAllBooks(){
         List<Book> returnedByLibrary = new ArrayList<Book>();
-        when(bangaloreLibrary.listAvailableBooks()).thenReturn(returnedByLibrary);
+        when(bangaloreLibrary.listAvailableItems()).thenReturn(returnedByLibrary);
         List<Book> returnedByCustomer = alice.checkAvailableBooks();
-        verify(bangaloreLibrary).listAvailableBooks();
+        verify(bangaloreLibrary).listAvailableItems();
         assertEquals(returnedByLibrary,returnedByCustomer);
     }
 
     public void checkOutHarryPotter1() {
-        when(bangaloreLibrary.removeBook(harryPotter1)).thenReturn(true);
+        when(bangaloreLibrary.removeItem(harryPotter1)).thenReturn(true);
         alice.checkout(harryPotter1);
     }
 
