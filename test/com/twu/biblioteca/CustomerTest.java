@@ -38,9 +38,9 @@ public class CustomerTest {
     @Test
     public void shouldCheckoutAvailableBook(){
         when(bangaloreBookLibrary.removeItem(harryPotter1)).thenReturn(true);
-        assertEquals(Message.SUCCESSFUL_CHECKOUT, alice.checkoutBook(harryPotter1));
+        assertEquals(Message.SUCCESSFUL_BOOK_CHECKOUT, alice.checkoutBook(harryPotter1));
         when(bangaloreBookLibrary.removeItem(harryPotter1)).thenReturn(false);
-        assertEquals(Message.UNSUCCESSFUL_CHECKOUT, alice.checkoutBook(harryPotter1));
+        assertEquals(Message.UNSUCCESSFUL_BOOK_CHECKOUT, alice.checkoutBook(harryPotter1));
     }
 
     @Test
@@ -53,15 +53,15 @@ public class CustomerTest {
     public void shouldReturnCheckedOutBook(){
         checkOutHarryPotter1();
         when(bangaloreBookLibrary.addItem(harryPotter1)).thenReturn(true);
-        assertEquals(Message.SUCCESSFUL_RETURN, alice.returnBook(harryPotter1));
-        assertEquals(Message.UNSUCCESSFUL_RETURN, alice.returnBook(harryPotter2));
+        assertEquals(Message.SUCCESSFUL_BOOK_RETURN, alice.returnBook(harryPotter1));
+        assertEquals(Message.UNSUCCESSFUL_BOOK_RETURN, alice.returnBook(harryPotter2));
     }
 
     @Test
     public void shouldReturnValidBook(){
         checkOutHarryPotter1();
         when(bangaloreBookLibrary.addItem(harryPotter1)).thenReturn(false);
-        assertEquals(Message.UNSUCCESSFUL_RETURN, alice.returnBook(harryPotter1));
+        assertEquals(Message.UNSUCCESSFUL_BOOK_RETURN, alice.returnBook(harryPotter1));
     }
 
     @Test

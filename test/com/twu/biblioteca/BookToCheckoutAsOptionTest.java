@@ -18,7 +18,7 @@ public class BookToCheckoutAsOptionTest {
         harryPotter1 = new Book("Harry Potter and the Philosopher's Stone","J. K. Rowling", 1997);
         alice = mock(Customer.class);
         presenter = mock(Presenter.class);
-        when(alice.checkoutBook(harryPotter1)).thenReturn(Message.SUCCESSFUL_CHECKOUT);
+        when(alice.checkoutBook(harryPotter1)).thenReturn(Message.SUCCESSFUL_BOOK_CHECKOUT);
         bookToCheckOutAsOption = new BookToCheckoutAsOption(alice, presenter, harryPotter1);
     }
 
@@ -31,7 +31,7 @@ public class BookToCheckoutAsOptionTest {
     @Test
     public void shouldDisplayCheckoutResult(){
         bookToCheckOutAsOption.onSelect();
-        verify(presenter).displayMessage(Message.SUCCESSFUL_CHECKOUT);
+        verify(presenter).displayMessage(Message.SUCCESSFUL_BOOK_CHECKOUT);
     }
 
 

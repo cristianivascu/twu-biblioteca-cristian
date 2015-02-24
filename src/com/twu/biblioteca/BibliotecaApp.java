@@ -29,8 +29,9 @@ public class BibliotecaApp {
         mainMenuOptions.add(new BookListOption(alice, presenter));
         mainMenuOptions.add(new BookCheckoutOption(alice, presenter));
         mainMenuOptions.add(new BookReturnOption(alice, presenter));
-        mainMenuOptions.add(new MovieCheckoutOption(alice,presenter));
         mainMenuOptions.add(new MovieListOption(alice,presenter));
+        mainMenuOptions.add(new MovieCheckoutOption(alice,presenter));
+        mainMenuOptions.add(new MovieReturnOption(alice,presenter));
         mainMenuOptions.add(new QuitOption());
         UserInterface ui = new UserInterface(presenter, mainMenuOptions);
 

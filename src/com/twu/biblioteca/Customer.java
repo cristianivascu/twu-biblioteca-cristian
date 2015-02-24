@@ -21,17 +21,17 @@ public class Customer {
     public Message checkoutBook(Book book) {
         if(bookLibrary.removeItem(book)) {
             checkedOutBooks.add(book);
-            return Message.SUCCESSFUL_CHECKOUT;
+            return Message.SUCCESSFUL_BOOK_CHECKOUT;
         }
-        return Message.UNSUCCESSFUL_CHECKOUT;
+        return Message.UNSUCCESSFUL_BOOK_CHECKOUT;
     }
 
     public Message returnBook(Book book) {
         if(checkedOutBooks.contains(book) && bookLibrary.addItem(book)){
             checkedOutBooks.remove(book);
-            return Message.SUCCESSFUL_RETURN;
+            return Message.SUCCESSFUL_BOOK_RETURN;
         }
-        return Message.UNSUCCESSFUL_RETURN;
+        return Message.UNSUCCESSFUL_BOOK_RETURN;
     }
 
     public Message checkoutMovie(Movie movie) {

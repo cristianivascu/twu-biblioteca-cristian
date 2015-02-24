@@ -18,7 +18,7 @@ public class BookToReturnAsOptionTest {
         harryPotter1 = new Book("Harry Potter and the Philosopher's Stone","J. K. Rowling", 1997);
         alice = mock(Customer.class);
         presenter = mock(Presenter.class);
-        when(alice.returnBook(harryPotter1)).thenReturn(Message.SUCCESSFUL_RETURN);
+        when(alice.returnBook(harryPotter1)).thenReturn(Message.SUCCESSFUL_BOOK_RETURN);
         bookToReturnAsOption = new BookToReturnAsOption(alice, presenter, harryPotter1);
     }
 
@@ -31,7 +31,7 @@ public class BookToReturnAsOptionTest {
     @Test
     public void shouldDisplayReturnResult(){
         bookToReturnAsOption.onSelect();
-        verify(presenter).displayMessage(Message.SUCCESSFUL_RETURN);
+        verify(presenter).displayMessage(Message.SUCCESSFUL_BOOK_RETURN);
     }
 
 
