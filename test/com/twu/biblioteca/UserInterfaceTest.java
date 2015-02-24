@@ -22,7 +22,7 @@ public class UserInterfaceTest {
     @Before
     public void setUp() throws Exception{
         presenter = mock(Presenter.class);
-        listOption = mock(ListOption.class);
+        listOption = mock(ListBooksOption.class);
         checkoutOption = mock(BookCheckoutOption.class);
         returnOption = mock(ReturnOption.class);
         quitOption = mock(QuitOption.class);
