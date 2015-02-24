@@ -24,7 +24,7 @@ public class PresenterTest {
         List<String> hello = new ArrayList<String>();
         hello.add("hello");
         hello.add("world");
-        assertEquals("1. hello\n2. world\n", presenter.displayAsMenu(hello));
+        assertEquals("1. hello\n2. world\n", presenter.displayAsList(hello));
     }
 
     @Test

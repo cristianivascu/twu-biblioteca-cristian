@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 public class Presenter {
 
-    public <T> String displayAsMenu(List<T> items){
+    public <T> void displayAsMenu(List<T> items){
         System.out.println("Choose an option by typing the corresponding number:");
-        return displayAsList(items);
+        displayAsList(items);
     }
 
     public <T> String displayAsList(List<T> items) {
