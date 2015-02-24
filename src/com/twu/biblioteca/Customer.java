@@ -18,7 +18,7 @@ public class Customer {
         this.bookLibrary = bookLibrary;
     }
 
-    public Message checkout(Book book) {
+    public Message checkoutBook(Book book) {
         if(bookLibrary.removeItem(book)) {
             checkedOutBooks.add(book);
             return Message.SUCCESSFUL_CHECKOUT;

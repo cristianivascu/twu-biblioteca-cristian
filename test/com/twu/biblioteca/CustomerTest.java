@@ -38,9 +38,9 @@ public class CustomerTest {
     @Test
     public void shouldCheckoutAvailableBook(){
         when(bangaloreBookLibrary.removeItem(harryPotter1)).thenReturn(true);
-        assertEquals(Message.SUCCESSFUL_CHECKOUT, alice.checkout(harryPotter1));
+        assertEquals(Message.SUCCESSFUL_CHECKOUT, alice.checkoutBook(harryPotter1));
         when(bangaloreBookLibrary.removeItem(harryPotter1)).thenReturn(false);
-        assertEquals(Message.UNSUCCESSFUL_CHECKOUT, alice.checkout(harryPotter1));
+        assertEquals(Message.UNSUCCESSFUL_CHECKOUT, alice.checkoutBook(harryPotter1));
     }
 
     @Test
@@ -83,7 +83,7 @@ public class CustomerTest {
 
     public void checkOutHarryPotter1() {
         when(bangaloreBookLibrary.removeItem(harryPotter1)).thenReturn(true);
-        alice.checkout(harryPotter1);
+        alice.checkoutBook(harryPotter1);
     }
 
 

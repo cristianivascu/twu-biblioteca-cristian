@@ -12,7 +12,7 @@ public class ManualBookCheckoutOption implements Option{
 
     public void onSelect() {
         Book enteredBook = presenter.getBookFromUser();
-        Message result = customer.checkout(enteredBook);
+        Message result = customer.checkoutBook(enteredBook);
         presenter.displayMessage(result);
 
     }

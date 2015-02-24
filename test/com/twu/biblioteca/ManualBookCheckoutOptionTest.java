@@ -21,7 +21,7 @@ public class ManualBookCheckoutOptionTest {
         manualCheckout = new ManualBookCheckoutOption(alice, presenter);
         harryPotter1 = new Book("Harry Potter and the Philosopher's Stone","J. K. Rowling", 1997);
         when(presenter.getBookFromUser()).thenReturn(harryPotter1);
-        when(alice.checkout(harryPotter1)).thenReturn(Message.SUCCESSFUL_CHECKOUT);
+        when(alice.checkoutBook(harryPotter1)).thenReturn(Message.SUCCESSFUL_CHECKOUT);
     }
 
     @Test
@@ -33,12 +33,12 @@ public class ManualBookCheckoutOptionTest {
     @Test
     public void shouldDelegateCheckoutWithCorrectBook(){
         manualCheckout.onSelect();
-        verify(alice).checkout(harryPotter1);
+        verify(alice).checkoutBook(harryPotter1);
     }
 
     @Test
     public void shouldDisplayCheckoutResult(){
         manualCheckout.onSelect();
-        verify(presenter).displayMessage(alice.checkout(harryPotter1));
+        verify(presenter).displayMessage(alice.checkoutBook(harryPotter1));
     }
 }

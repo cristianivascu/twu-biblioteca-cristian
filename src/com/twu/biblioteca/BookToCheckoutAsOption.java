@@ -13,7 +13,7 @@ public class BookToCheckoutAsOption implements Option {
 
     @Override
     public void onSelect() {
-        Message result = customer.checkout(book);
+        Message result = customer.checkoutBook(book);
         presenter.displayMessage(result);
     }
 
