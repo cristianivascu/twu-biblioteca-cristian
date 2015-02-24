@@ -17,7 +17,7 @@ public class BookListOption implements Option {
         if (books.isEmpty()) {
             presenter.displayMessage(Message.NO_BOOKS);
         } else {
-            presenter.displayItemsAsList(books);
+            presenter.displayAsList(books);
         }
     }
 

@@ -16,7 +16,7 @@ public abstract class ItemActionOption implements Option{
             displayNoItemsMessage();
         }else {
             initialiseOptions(items);
-            presenter.displayItemsAsMenuOptions(options);
+            presenter.displayAsMenu(options);
             int chosenOptionNumber = presenter.getUserInput(options.size());
             Option selectedOption = options.get(chosenOptionNumber - 1);
             selectedOption.onSelect();

@@ -5,12 +5,12 @@ import java.util.Scanner;
 
 public class Presenter {
 
-    public <T> String displayItemsAsMenuOptions(List<T> items){
+    public <T> String displayAsMenu(List<T> items){
         System.out.println("Choose an option by typing the corresponding number:");
-        return displayItemsAsList(items);
+        return displayAsList(items);
     }
 
-    public <T> String displayItemsAsList(List<T> items) {
+    public <T> String displayAsList(List<T> items) {
         String result = "";
         int counter = 1;
         for(T item : items){

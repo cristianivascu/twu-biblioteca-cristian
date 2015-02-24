@@ -37,7 +37,7 @@ public class UserInterfaceTest {
     public void shouldDisplayMainMenuOptions(){
         when(presenter.getUserInput(4)).thenReturn(4);
         ui.mainMenu();
-        verify(presenter).displayItemsAsMenuOptions(menuOptions);
+        verify(presenter).displayAsMenu(menuOptions);
     }
 
     @Test

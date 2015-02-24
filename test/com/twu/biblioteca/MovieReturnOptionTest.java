@@ -40,7 +40,7 @@ public class MovieReturnOptionTest {
     @Test
     public void shouldDisplayAvailableOptionsAsList(){
         movieReturnOption.onSelect();
-        verify(presenter).displayItemsAsMenuOptions(movieReturnOption.getOptions());
+        verify(presenter).displayAsMenu(movieReturnOption.getOptions());
     }
 
     @Test

@@ -40,7 +40,7 @@ public class BookCheckoutOptionTest {
     @Test
     public void shouldDisplayAvailableOptionsAsList(){
         bookCheckoutOption.onSelect();
-        verify(presenter).displayItemsAsMenuOptions(bookCheckoutOption.getOptions());
+        verify(presenter).displayAsMenu(bookCheckoutOption.getOptions());
     }
 
     @Test

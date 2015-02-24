@@ -40,7 +40,7 @@ public class MovieCheckoutOptionTest {
     @Test
     public void shouldDisplayAvailableOptionsAsList(){
         movieCheckoutOption.onSelect();
-        verify(presenter).displayItemsAsMenuOptions(movieCheckoutOption.getOptions());
+        verify(presenter).displayAsMenu(movieCheckoutOption.getOptions());
     }
 
     @Test

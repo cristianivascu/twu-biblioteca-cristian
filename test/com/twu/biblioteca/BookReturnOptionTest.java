@@ -40,7 +40,7 @@ public class BookReturnOptionTest {
     @Test
     public void shouldDisplayAvailableOptionsAsList(){
         bookReturnOption.onSelect();
-        verify(presenter).displayItemsAsMenuOptions(bookReturnOption.getOptions());
+        verify(presenter).displayAsMenu(bookReturnOption.getOptions());
     }
 
     @Test

@@ -17,7 +17,7 @@ public class MovieListOption implements Option {
         if (movies.isEmpty()) {
             presenter.displayMessage(Message.NO_MOVIES);
         } else {
-            presenter.displayItemsAsList(movies);
+            presenter.displayAsList(movies);
         }
     }
 
