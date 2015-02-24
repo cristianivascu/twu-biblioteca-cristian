@@ -31,7 +31,8 @@ public class CustomerTest {
         godfather2 = new Movie("The Godfather Part II",1974,"Francis Ford Coppola");
         bangaloreBookLibrary = mock(Library.class);
         bangaloreMovieLibrary = mock(Library.class);
-        alice = new Customer(bangaloreBookLibrary);
+        alice = new Customer();
+        alice.setBookLibrary(bangaloreBookLibrary);
         alice.setMovieLibrary(bangaloreMovieLibrary);
     }
 

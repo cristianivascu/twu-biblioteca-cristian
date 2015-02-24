@@ -14,14 +14,15 @@ public class BibliotecaApp {
         Map<Book,Integer> books = new HashMap<Book, Integer>();
         books.put(harryPotter1, 3);
         books.put(harryPotter2, 1);
-        Library<Book> bangalore = new Library<Book>(books);
+        Library<Book> bangaloreBooks = new Library<Book>(books);
 
         Movie godfather = new Movie("The Godfather",1972,"Francis Ford Coppola");
         Map<Movie,Integer> movies = new HashMap<Movie, Integer>();
         movies.put(godfather, 1);
         Library<Movie> bangaloreMovies = new Library<Movie>(movies);
 
-        Customer alice = new Customer(bangalore);
+        Customer alice = new Customer();
+        alice.setBookLibrary(bangaloreBooks);
         alice.setMovieLibrary(bangaloreMovies);
 
         List<Option> mainMenuOptions = new ArrayList<Option>();

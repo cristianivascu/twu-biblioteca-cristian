@@ -8,14 +8,14 @@ public class Customer {
     private List<Book> checkedOutBooks = new ArrayList<Book>();
     private List<Movie> checkedOutMovies = new ArrayList<Movie>();
     private Library<Book> bookLibrary;
-
     private Library<Movie> movieLibrary;
-    public void setMovieLibrary(Library<Movie> movieLibrary) {
-        this.movieLibrary = movieLibrary;
+
+    public void setBookLibrary(Library<Book> bookLibrary) {
+        this.bookLibrary = bookLibrary;
     }
 
-    public Customer(Library<Book> bookLibrary){
-        this.bookLibrary = bookLibrary;
+    public void setMovieLibrary(Library<Movie> movieLibrary) {
+        this.movieLibrary = movieLibrary;
     }
 
     public Message checkoutBook(Book book) {
