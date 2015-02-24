@@ -15,12 +15,21 @@ public class BibliotecaApp {
         books.put(harryPotter1, 3);
         books.put(harryPotter2, 1);
         Library<Book> bangalore = new Library<Book>(books);
+
+        Movie godfather = new Movie("The Godfather",1972,"Francis Ford Coppola");
+        Map<Movie,Integer> movies = new HashMap<Movie, Integer>();
+        movies.put(godfather, 1);
+        Library<Movie> bangaloreMovies = new Library<Movie>(movies);
+
         Customer alice = new Customer(bangalore);
+        alice.setMovieLibrary(bangaloreMovies);
+
         List<Option> mainMenuOptions = new ArrayList<Option>();
         Presenter presenter = new Presenter();
         mainMenuOptions.add(new ListOption(alice, presenter));
         mainMenuOptions.add(new CheckoutOption(alice, presenter));
         mainMenuOptions.add(new ReturnOption(alice, presenter));
+        mainMenuOptions.add(new MovieCheckoutOption(alice,presenter));
         mainMenuOptions.add(new QuitOption());
         UserInterface ui = new UserInterface(presenter, mainMenuOptions);
 
