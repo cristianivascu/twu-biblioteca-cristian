@@ -72,6 +72,7 @@ public class Library {
         mainMenuOptions.add(new MovieListOption(customer,presenter));
         mainMenuOptions.add(new MovieCheckoutOption(customer,presenter));
         mainMenuOptions.add(new MovieReturnOption(customer,presenter));
+        mainMenuOptions.add(new AccountDetailsOption(loggedInUser));
         mainMenuOptions.add(new QuitOption());
     }
 
