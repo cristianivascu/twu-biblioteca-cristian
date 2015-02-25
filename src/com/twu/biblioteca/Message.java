@@ -13,7 +13,9 @@ public enum Message {
     UNSUCCESSFUL_MOVIE_CHECKOUT("That movie is not available."),
     SUCCESSFUL_MOVIE_RETURN("Thank you for returning the movie."),
     UNSUCCESSFUL_MOVIE_RETURN("That is not a valid movie to return."),
-    NO_MOVIES("There are no movies available!");
+    NO_MOVIES("There are no movies available!"),
+    LOGIN_SUCCESSFUL("Login was successful"),
+    LOGIN_UNSUCCESSFUL("Your login details are incorrect");
 
     private final String message;
 

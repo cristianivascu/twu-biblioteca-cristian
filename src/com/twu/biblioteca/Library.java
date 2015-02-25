@@ -2,10 +2,7 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.options.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Library {
     private Inventory<Movie> movieDatabase;
@@ -33,9 +30,26 @@ public class Library {
         userDatabase.add(new UserAccount("bob","bob@thebuilder.com",7778978,"999-9999","abcde",this));
     }
 
-    public void login(){
-        //TO-DO
+    public boolean login(){
+        /*this looks like a task for Presenter, but given the nature of the data it will be left here for now*/
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter your library number");
+        String libraryNumber = in.nextLine();
+        System.out.println("Enter your password");
+        String password = in.nextLine();
+        /****************/
+
+        for(UserAccount user : userDatabase){
+            if(user.getPassword().equals(password) && user.getLibraryNumber().equals(libraryNumber)){
+                presenter.displayMessage(Message.LOGIN_SUCCESSFUL);
+                return true;
+            }
+        }
+        presenter.displayMessage(Message.LOGIN_UNSUCCESSFUL);
+        return false;
+
     }
+
 
 
     private void initialiseMainMenu(Customer customer){
