@@ -11,6 +11,19 @@ public class Library {
     private List<Option> mainMenuOptions;
     private Presenter presenter = new Presenter();
 
+    private UserAccount loggedInUser;
+
+    public void start(){
+        init();
+        register();
+        while(login()){
+            Customer customer = loggedInUser.getCustomerProfile();
+            initialiseMainMenu(customer);
+            UserInterface ui = new UserInterface(presenter, mainMenuOptions);
+            ui.mainMenu();
+        }
+    }
+
     public void init(){
         Book harryPotter1 = new Book("Harry Potter and the Philosopher's Stone","J. K. Rowling", 1997);
         Book harryPotter2 = new Book("Harry Potter and the Chamber of Secrets","J. K. Rowling", 1998);
@@ -42,6 +55,7 @@ public class Library {
         for(UserAccount user : userDatabase){
             if(user.getPassword().equals(password) && user.getLibraryNumber().equals(libraryNumber)){
                 presenter.displayMessage(Message.LOGIN_SUCCESSFUL);
+                loggedInUser = user;
                 return true;
             }
         }
@@ -49,8 +63,6 @@ public class Library {
         return false;
 
     }
-
-
 
     private void initialiseMainMenu(Customer customer){
         mainMenuOptions = new ArrayList<Option>();
