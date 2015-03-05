@@ -66,10 +66,8 @@ public class Library {
 
     private void initialiseMainMenu(Customer customer){
         mainMenuOptions = new ArrayList<Option>();
-        mainMenuOptions.add(new BookListOption(customer, presenter));
         mainMenuOptions.add(new BookCheckoutOption(customer, presenter));
         mainMenuOptions.add(new BookReturnOption(customer, presenter));
-        mainMenuOptions.add(new MovieListOption(customer,presenter));
         mainMenuOptions.add(new MovieCheckoutOption(customer,presenter));
         mainMenuOptions.add(new MovieReturnOption(customer,presenter));
         mainMenuOptions.add(new AccountDetailsOption(loggedInUser));

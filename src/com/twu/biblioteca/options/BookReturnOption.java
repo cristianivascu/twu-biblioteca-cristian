@@ -22,13 +22,16 @@ public class BookReturnOption extends ItemActionOption {
     }
 
     @Override
-    Option convertItemToOption(Item item) {
-        return new BookToReturnAsOption(customer,presenter,(Book) item);
+    Item getItemManually() {
+        Book enteredBook = presenter.getBookFromUser();
+        return enteredBook;
     }
 
     @Override
-    Option getManualOption() {
-        return new BookManualReturnOption(customer, presenter);
+    void itemAction(Item item) {
+        Message result =customer.returnBook((Book) item);
+        presenter.displayMessage(result);
+
     }
 
     @Override

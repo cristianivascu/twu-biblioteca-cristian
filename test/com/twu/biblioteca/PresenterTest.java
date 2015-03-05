@@ -20,14 +20,6 @@ public class PresenterTest {
     }
 
     @Test
-    public void shouldDisplayAListAsMenuOptions() {
-        List<String> hello = new ArrayList<String>();
-        hello.add("hello");
-        hello.add("world");
-        assertEquals("1. hello\n2. world\n", presenter.displayAsList(hello));
-    }
-
-    @Test
     public void shouldReturnUserInput() {
 
         ByteArrayInputStream in = new ByteArrayInputStream("4".getBytes());

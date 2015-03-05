@@ -17,27 +17,22 @@ public abstract class ItemActionOption implements Option {
         if(items.isEmpty()){
             displayNoItemsMessage();
         }else {
-            initialiseOptions(items);
-            presenter.displayAsMenu(options);
-            int chosenOptionNumber = presenter.getUserInput(options.size());
-            Option selectedOption = options.get(chosenOptionNumber - 1);
-            selectedOption.onSelect();
+            int manualOptionIndex = items.size()+1;
+            int exitOptionIndex = items.size()+2;
+            presenter.displayItemsAsMenu(items);
+            int chosenOptionNumber = presenter.getUserInput(exitOptionIndex);
+            if(chosenOptionNumber == manualOptionIndex){
+                itemAction(getItemManually());
+            }else if(chosenOptionNumber < manualOptionIndex){
+                itemAction(items.get(chosenOptionNumber - 1));
+            }
         }
     }
 
     abstract List<? extends Item> getItems();
     abstract void displayNoItemsMessage();
-    abstract Option convertItemToOption(Item item);
-    abstract Option getManualOption();
-
-    private void initialiseOptions(List<? extends Item> items) {
-        options = new ArrayList<Option>();
-        for(Item item:items){
-            options.add(convertItemToOption(item));
-        }
-        options.add(getManualOption());
-        options.add(new QuitOption());
-    }
+    abstract Item getItemManually();
+    abstract void itemAction(Item item);
 
     public List<Option> getOptions() {
         return new ArrayList<Option>(options);

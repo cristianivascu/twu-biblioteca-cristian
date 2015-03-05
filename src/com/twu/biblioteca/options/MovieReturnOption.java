@@ -22,13 +22,16 @@ public class MovieReturnOption extends ItemActionOption {
     }
 
     @Override
-    Option convertItemToOption(Item item) {
-        return new MovieToReturnAsOption(customer,presenter,(Movie) item);
+    Item getItemManually() {
+        Movie enteredMovie = presenter.getMovieFromUser();
+        return enteredMovie;
     }
 
     @Override
-    Option getManualOption() {
-        return new MovieManualReturnOption(customer, presenter);
+    void itemAction(Item item) {
+        Message result =customer.returnMovie((Movie) item);
+        presenter.displayMessage(result);
+
     }
 
     @Override

@@ -22,13 +22,16 @@ public class MovieCheckoutOption extends ItemActionOption {
     }
 
     @Override
-    Option convertItemToOption(Item item) {
-        return new MovieToCheckoutAsOption(customer,presenter,(Movie) item);
+    Item getItemManually() {
+        Movie enteredMovie = presenter.getMovieFromUser();
+        return enteredMovie;
     }
 
     @Override
-    Option getManualOption() {
-        return new MovieManualCheckoutOption(customer, presenter);
+    void itemAction(Item item) {
+        Message result =customer.checkoutMovie((Movie) item);
+        presenter.displayMessage(result);
+
     }
 
     @Override

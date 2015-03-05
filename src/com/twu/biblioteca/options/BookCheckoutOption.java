@@ -22,14 +22,18 @@ public class BookCheckoutOption extends ItemActionOption {
     }
 
     @Override
-    Option convertItemToOption(Item item) {
-        return new BookToCheckoutAsOption(customer,presenter,(Book) item);
+    Item getItemManually() {
+        Book enteredBook = presenter.getBookFromUser();
+        return enteredBook;
     }
 
     @Override
-    Option getManualOption() {
-        return new BookManualCheckoutOption(customer, presenter);
+    void itemAction(Item item) {
+        Message result =customer.checkoutBook((Book) item);
+        presenter.displayMessage(result);
+
     }
+
 
     @Override
     public String toString() {

@@ -10,7 +10,15 @@ public class Presenter {
         displayAsList(items);
     }
 
-    public <T> String displayAsList(List<T> items) {
+    public <T> void displayItemsAsMenu(List<T> items) {
+        System.out.println("Choose an item by typing its number:");
+        displayAsList(items);
+        System.out.println((items.size()+1)+ ". Enter manually");
+        System.out.println((items.size()+2)+ ". Exit");
+    }
+
+
+    private <T> String displayAsList(List<T> items) {
         String result = "";
         int counter = 1;
         for(T item : items){
