@@ -1,7 +1,10 @@
 package com.twu.biblioteca;
 
 
-import com.twu.biblioteca.options.*;
+import com.twu.biblioteca.options.BookCheckoutOption;
+import com.twu.biblioteca.options.BookReturnOption;
+import com.twu.biblioteca.options.Option;
+import com.twu.biblioteca.options.QuitOption;
 import org.junit.Before;
 import org.junit.Test;
 

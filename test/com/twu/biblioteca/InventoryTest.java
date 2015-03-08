@@ -49,9 +49,5 @@ public class InventoryTest {
         assertEquals(2, bangaloreInventory.listAvailableItems().size());
         assertTrue(bangaloreInventory.listAvailableItems().contains(harryPotter1));
         assertTrue(bangaloreInventory.listAvailableItems().contains(harryPotter2));
-        bangaloreInventory.removeItem(harryPotter1);
-        assertEquals(1, bangaloreInventory.listAvailableItems().size());
-        assertTrue(bangaloreInventory.listAvailableItems().contains(harryPotter2));
-        assertEquals(2, bangaloreInventory.getItems().size());
     }
 }

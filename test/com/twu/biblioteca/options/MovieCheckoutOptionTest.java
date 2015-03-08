@@ -5,7 +5,6 @@ import com.twu.biblioteca.Customer;
 import com.twu.biblioteca.Message;
 import com.twu.biblioteca.Movie;
 import com.twu.biblioteca.Presenter;
-import com.twu.biblioteca.options.MovieCheckoutOption;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,11 +19,11 @@ public class MovieCheckoutOptionTest {
     private Presenter presenter;
     private MovieCheckoutOption movieCheckoutOption;
     private int totalOptions;
+    private List<Movie> movies = new ArrayList<Movie>();
 
     @Before
     public void setUp() throws Exception{
         Movie godfather = new Movie("The Godfather",1972,"Francis Ford Coppola");
-        List<Movie> movies = new ArrayList<Movie>();
         movies.add(godfather);
         alice = mock(Customer.class);
         when(alice.checkAvailableMovies()).thenReturn(movies);
@@ -43,9 +42,9 @@ public class MovieCheckoutOptionTest {
     }
 
     @Test
-    public void shouldDisplayAvailableOptionsAsList(){
+    public void shouldDisplayAvailableMoviesAsList(){
         movieCheckoutOption.onSelect();
-        verify(presenter).displayAsMenu(movieCheckoutOption.getOptions());
+        verify(presenter).displayItemsAsMenu(movies);
     }
 
     @Test

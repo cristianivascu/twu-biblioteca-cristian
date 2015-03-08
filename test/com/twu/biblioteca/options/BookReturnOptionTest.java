@@ -19,11 +19,11 @@ public class BookReturnOptionTest {
     private Presenter presenter;
     private BookReturnOption bookReturnOption;
     private int totalOptions;
+    private List<Book> books = new ArrayList<Book>();
 
     @Before
     public void setUp() throws Exception{
         Book harryPotter1 = new Book("Harry Potter and the Philosopher's Stone","J. K. Rowling", 1997);
-        List<Book> books = new ArrayList<Book>();
         books.add(harryPotter1);
         alice = mock(Customer.class);
         when(alice.getCheckedOutBooks()).thenReturn(books);
@@ -42,9 +42,9 @@ public class BookReturnOptionTest {
     }
 
     @Test
-    public void shouldDisplayAvailableOptionsAsList(){
+    public void shouldDisplayAvailableBooksAsList(){
         bookReturnOption.onSelect();
-        verify(presenter).displayAsMenu(bookReturnOption.getOptions());
+        verify(presenter).displayItemsAsMenu(books);
     }
 
     @Test
